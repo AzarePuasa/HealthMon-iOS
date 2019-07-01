@@ -12,6 +12,12 @@
 		EBAE9821225E23E400F2C518 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EBAE981F225E23E400F2C518 /* Main.storyboard */; };
 		EBAE9823225E23E600F2C518 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EBAE9822225E23E600F2C518 /* Assets.xcassets */; };
 		EBAE9826225E23E600F2C518 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EBAE9824225E23E600F2C518 /* LaunchScreen.storyboard */; };
+		EBC6260D229CFE4C009CD035 /* ApptDataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBC6260C229CFE4C009CD035 /* ApptDataController.swift */; };
+		EBC62615229D04E5009CD035 /* ApptTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBC62614229D04E5009CD035 /* ApptTableViewCell.swift */; };
+		EBCC34B822B4BA3D007A1A82 /* UpcomingApptViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBCC34B722B4BA3D007A1A82 /* UpcomingApptViewController.swift */; };
+		EBCC34BA22B4CADD007A1A82 /* AddApptViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBCC34B922B4CADD007A1A82 /* AddApptViewController.swift */; };
+		EBE4916022B565B00088D66E /* EditApptViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBE4915F22B565B00088D66E /* EditApptViewController.swift */; };
+		EBE8F627227D4D7A00E7912D /* Appt.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBE8F626227D4D7A00E7912D /* Appt.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +28,12 @@
 		EBAE9822225E23E600F2C518 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		EBAE9825225E23E600F2C518 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		EBAE9827225E23E600F2C518 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EBC6260C229CFE4C009CD035 /* ApptDataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApptDataController.swift; sourceTree = "<group>"; };
+		EBC62614229D04E5009CD035 /* ApptTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApptTableViewCell.swift; sourceTree = "<group>"; };
+		EBCC34B722B4BA3D007A1A82 /* UpcomingApptViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpcomingApptViewController.swift; sourceTree = "<group>"; };
+		EBCC34B922B4CADD007A1A82 /* AddApptViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddApptViewController.swift; sourceTree = "<group>"; };
+		EBE4915F22B565B00088D66E /* EditApptViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditApptViewController.swift; sourceTree = "<group>"; };
+		EBE8F626227D4D7A00E7912D /* Appt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Appt.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +72,12 @@
 				EBAE9822225E23E600F2C518 /* Assets.xcassets */,
 				EBAE9824225E23E600F2C518 /* LaunchScreen.storyboard */,
 				EBAE9827225E23E600F2C518 /* Info.plist */,
+				EBE8F626227D4D7A00E7912D /* Appt.swift */,
+				EBC6260C229CFE4C009CD035 /* ApptDataController.swift */,
+				EBC62614229D04E5009CD035 /* ApptTableViewCell.swift */,
+				EBCC34B722B4BA3D007A1A82 /* UpcomingApptViewController.swift */,
+				EBCC34B922B4CADD007A1A82 /* AddApptViewController.swift */,
+				EBE4915F22B565B00088D66E /* EditApptViewController.swift */,
 			);
 			path = HealthApp;
 			sourceTree = "<group>";
@@ -136,7 +154,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				EBAE981E225E23E400F2C518 /* ViewController.swift in Sources */,
+				EBE4916022B565B00088D66E /* EditApptViewController.swift in Sources */,
+				EBE8F627227D4D7A00E7912D /* Appt.swift in Sources */,
+				EBC62615229D04E5009CD035 /* ApptTableViewCell.swift in Sources */,
+				EBC6260D229CFE4C009CD035 /* ApptDataController.swift in Sources */,
+				EBCC34B822B4BA3D007A1A82 /* UpcomingApptViewController.swift in Sources */,
 				EBAE981C225E23E400F2C518 /* AppDelegate.swift in Sources */,
+				EBCC34BA22B4CADD007A1A82 /* AddApptViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
