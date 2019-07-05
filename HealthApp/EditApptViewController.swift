@@ -28,9 +28,7 @@ class EditApptViewController: UIViewController {
     let datePicker: UIDatePicker = UIDatePicker()
     let timePicker: UIDatePicker = UIDatePicker()
     
-    var dc = ApptDataController.sharedInstance
-    
-    var id: Int?
+    var appointment: Appointment!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -43,26 +41,28 @@ class EditApptViewController: UIViewController {
         //Load Header & Sub-Header
         outLabelHeader.text = "Appointment"
         outLabelSubHeader.text = "Edit Appointment"
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
         
-        if let id = id, let appointment = dc.getAppointment(id: id) {
-            outTextDate.text = appointment.date
-            outTextTime.text = appointment.time
-            outTextLocation.text = appointment.location
-            outTextPurpose.text = appointment.purpose
-        }
+        outTextDate.text = appointment.date
+        outTextTime.text = appointment.time
+        outTextLocation.text = appointment.location
+        outTextPurpose.text = appointment.purpose
     }
     
     @IBAction func actSave(_ sender: UIBarButtonItem) {
-        if let id = id, let date = outTextDate.text, let time = outTextTime.text,
+        if let date = outTextDate.text, let time = outTextTime.text,
             let location = outTextLocation.text, let purpose = outTextPurpose.text  {
             //save to data controller
-            let appointment = Appointment(id: id, dateOfAppt: date, timeOfAppt: time, location: location, purpose: purpose)
+//            let appointment = Appointment(id: appointment.id, dateOfAppt: date, timeOfAppt: time, location: location, purpose: purpose)
             
-            let update = dc.updateAppointment(id: id, new: appointment)
+            //let update = dc.updateAppointment(id: id, new: appointment)
 
-            if (update) {
-                performSegue(withIdentifier: "exittolist", sender: self)
-            }
+//            if (update) {
+//                performSegue(withIdentifier: "exittolist", sender: self)
+//            }
         }
     }
     

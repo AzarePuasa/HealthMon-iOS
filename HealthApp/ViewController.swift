@@ -26,7 +26,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     var fetchResults: [Appointment] = []
     
-    let API_URL = "http://localhost:9010/api/appointments"
+    let GET_ALL_APPT_URL = "http://localhost:9010/api/appointments"
     
     enum DATETIMEINFO {
         case date
@@ -60,31 +60,32 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         let image = UIImage(named: "calendarscope")
         outImageHeader.image = image
         
-        
         //Load Header & Sub-Header
         outLabelHeader.text = "Appointment"
         outLabelSubHeader.text = "Appointments"
-        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
         fetchAllAppointment()
     }
     
     func fetchAllAppointment() {
-        HTTPHandler.getJson(urlString: API_URL, completionHandler: parseDataIntoAppts)
+        HTTPHandler.getJson(urlString: GET_ALL_APPT_URL, completionHandler: parseDataIntoAppts)
     }
     
     func parseDataIntoAppts(data: Data?) -> Void {
         if let data = data {
-            let object = JSONParser.parse(data: data)
+            let object = ApptJSONParser.parseAppts(data: data)
             if let object = object {
-                self.fetchResults = ApptDataProcessor.mapJsonToAppointment(object: object)
+                self.fetchResults = ApptDataProcessor.mapJsonToAppts(object: object)
                 print("Fetch Result: \(fetchResults.count)")
                 self.upcomingAppointments = upcomingAppointments(appointments: self.fetchResults)
                 self.completedAppointments = completedAppointments(appointments: self.fetchResults)
                 
                 print("Upcoming: \(self.upcomingAppointments.count)")
                 print("Completed: \(self.completedAppointments.count)")
-                
-                
+
                 DispatchQueue.main.async {
                     self.outTableView.reloadData()
                     print("Updating View")
@@ -94,7 +95,6 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        print(#function)
         return 1
     }
     
@@ -106,12 +106,10 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         }
         
         //return dc.completedAppointments.count
-        print(#function)
         return completedAppointments.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        print(#function)
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! ApptTableViewCell
         
         var appointments: [Appointment] = []
@@ -153,17 +151,25 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         let identifier = segue.identifier
         
         if (identifier == "view") {
+            
             let vc = segue.destination as! UpcomingApptViewController
             
             if let indexPath = outTableView.indexPathForSelectedRow {
                 let row = indexPath.row
                 
-                let upcomingappointment = upcomingAppointments[row]
-                
-                //vc.id = upcomingappointment.id
-                
-                vc.isUpcoming = outSegmentedControl.selectedSegmentIndex
-                    == APPTTYPE.Completed.value() ? false : true
+                if (outSegmentedControl.selectedSegmentIndex ==  APPTTYPE.Upcoming.value()) {
+                    let upcomingappointment = upcomingAppointments[row]
+                    
+                    vc.id = upcomingappointment.id
+                    
+                    vc.isUpcoming = true
+                } else {
+                    let completedappointment = completedAppointments[row]
+                    
+                    vc.id = completedappointment.id
+                    
+                    vc.isUpcoming = false
+                }
             }
         }
     }

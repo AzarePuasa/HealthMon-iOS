@@ -10,10 +10,10 @@ import Foundation
 
 class ApptDataProcessor {
     
-    static func mapJsonToAppointment(object: [[String: AnyObject]]) -> [Appointment] {
+    static func mapJsonToAppts(object: [[String: AnyObject]]) -> [Appointment] {
         var mappedAppts: [Appointment] = []
         
-        guard let appts = object as? [[String: AnyObject]] else { return mappedAppts }
+        let appts = object
         
         for appt in appts {
             guard let id = appt["id"] as? Int,
@@ -33,6 +33,31 @@ class ApptDataProcessor {
             mappedAppts.append(apptClass)
         }
         return mappedAppts
+    }
+    
+    static func mapJsonToAppt(object: [String: AnyObject]) -> Appointment? {
+        
+        let appt = object
+        
+        if let id = appt["id"] as? Int,
+            let datetime = appt["datetime"] as? String,
+            let location = appt["location"] as? String,
+            let purpose = appt["purpose"] as? String {
+            
+            print("Id: \(id) \nDate/Time: \(datetime) \nLocation: \(location) \nPurpose: \(purpose)\n")
+            
+             //Seperate date time.
+            let datetimeArr = datetime.components(separatedBy: " ")
+            let date = datetimeArr[0]
+            let time = datetimeArr[1]
+ 
+            let apptClass = Appointment(id: id, dateOfAppt: date, timeOfAppt: time, location: location, purpose: purpose)
+            
+            return apptClass
+            
+        }
+        
+        return nil
     }
     
     static func write(Appointments: [Appointment]) {
