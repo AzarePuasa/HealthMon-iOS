@@ -9,14 +9,14 @@
 import Foundation
 
 class Appointment {
-    var id: UUID
-    var date: String
-    var time: String
-    var location: String
-    var purpose: String
+    var id: Int = -1
+    var date: String = ""
+    var time: String = ""
+    var location: String = ""
+    var purpose: String = ""
    
-    init(dateOfAppt: String, timeOfAppt: String, location: String, purpose: String) {
-        self.id = UUID()
+    init(id:Int, dateOfAppt: String, timeOfAppt: String, location: String, purpose: String) {
+        self.id = id
         self.date = dateOfAppt
         self.time = timeOfAppt
         self.location = location

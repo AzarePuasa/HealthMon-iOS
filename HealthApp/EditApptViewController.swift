@@ -30,7 +30,7 @@ class EditApptViewController: UIViewController {
     
     var dc = ApptDataController.sharedInstance
     
-    var id: UUID?
+    var id: Int?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -56,7 +56,7 @@ class EditApptViewController: UIViewController {
         if let id = id, let date = outTextDate.text, let time = outTextTime.text,
             let location = outTextLocation.text, let purpose = outTextPurpose.text  {
             //save to data controller
-            let appointment = Appointment(dateOfAppt: date, timeOfAppt: time, location: location, purpose: purpose)
+            let appointment = Appointment(id: id, dateOfAppt: date, timeOfAppt: time, location: location, purpose: purpose)
             
             let update = dc.updateAppointment(id: id, new: appointment)
 

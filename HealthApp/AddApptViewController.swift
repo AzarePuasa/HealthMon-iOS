@@ -53,7 +53,7 @@ class AddApptViewController: UIViewController {
         if let date = outTextDate.text, let time = outTextTime.text,
             let location = outTextLocation.text, let purpose = outTextPurpose.text  {
             //save to data controller
-            let appointment = Appointment(dateOfAppt: date, timeOfAppt: time, location: location, purpose: purpose)
+            let appointment = Appointment(id: -1, dateOfAppt: date, timeOfAppt: time, location: location, purpose: purpose)
             
             dc.add(appointment: appointment)
         }

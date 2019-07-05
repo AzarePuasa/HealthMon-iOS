@@ -26,7 +26,7 @@ class UpcomingApptViewController: UIViewController {
     
     @IBOutlet weak var outBarButtonEdit: UIBarButtonItem!
     
-    var id: UUID!
+    var id: Int!
     
     var isUpcoming: Bool!
     
