@@ -41,6 +41,10 @@ class EditApptViewController: UIViewController {
         //Load Header & Sub-Header
         outLabelHeader.text = "Appointment"
         outLabelSubHeader.text = "Edit Appointment"
+        
+        //show date picker
+        showDatePicker()
+        showTimePicker()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -50,6 +54,78 @@ class EditApptViewController: UIViewController {
         outTextTime.text = appointment.time
         outTextLocation.text = appointment.location
         outTextPurpose.text = appointment.purpose
+    }
+    
+    func showDatePicker(){
+        //Formate Date
+        datePicker.datePickerMode = .date
+        
+        let dateFormatter = DateFormatter()
+        
+        dateFormatter.dateFormat = "yyyy-MM-dd"
+        
+        if let date = dateFormatter.date(from: appointment.date) {
+            datePicker.setDate(date, animated: true)
+        }
+        
+        //ToolBar
+        let toolbar = UIToolbar();
+        toolbar.sizeToFit()
+        
+        //done button & cancel button
+        let doneButton = UIBarButtonItem(title: "Done",
+                                         style: .plain, target: self, action: #selector(donedatePicker(_:)))
+        
+        toolbar.setItems([doneButton], animated: false)
+        
+        // add toolbar to textField
+        outTextDate.inputAccessoryView = toolbar
+        // add datepicker to textField
+        outTextDate.inputView = datePicker
+    }
+    
+    func showTimePicker(){
+        //Formate Date
+        timePicker.datePickerMode = .time
+        
+        let dateFormatter = DateFormatter()
+        
+        dateFormatter.dateFormat = "HH:mm:ss"
+        
+        if let time = dateFormatter.date(from: appointment.time) {
+            timePicker.setDate(time, animated: true)
+        }
+        
+        //ToolBar
+        let toolbar = UIToolbar();
+        toolbar.sizeToFit()
+        
+        //done button & cancel button
+        let doneButton = UIBarButtonItem(title: "Done",
+                                         style: .plain, target: self, action: #selector(donetimePicker(_:)))
+        
+        toolbar.setItems([doneButton], animated: false)
+        
+        // add toolbar to textField
+        outTextTime.inputAccessoryView = toolbar
+        // add datepicker to textField
+        outTextTime.inputView = timePicker
+    }
+    
+    @objc func donedatePicker(_ sender:UIBarButtonItem){
+        //For date formate
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy-MM-dd"
+        outTextDate.text = formatter.string(from: datePicker.date)
+        outTextDate.resignFirstResponder()
+    }
+    
+    @objc func donetimePicker(_ sender:UIBarButtonItem){
+        //For date formate
+        let formatter = DateFormatter()
+        formatter.dateFormat = "HH:mm:ss"
+        outTextTime.text = formatter.string(from: timePicker.date)
+        outTextTime.resignFirstResponder()
     }
     
     @IBAction func actSave(_ sender: UIBarButtonItem) {

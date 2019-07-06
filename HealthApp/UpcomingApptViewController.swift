@@ -89,7 +89,7 @@ class UpcomingApptViewController: UIViewController {
         let identifier = segue.identifier
         if (identifier == "editAppt") {
             let vc = segue.destination as! EditApptViewController
-            vc.id = self.id
+            vc.appointment = self.appointment
         }
     }
 }

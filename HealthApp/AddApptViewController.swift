@@ -28,8 +28,6 @@ class AddApptViewController: UIViewController {
     let datePicker: UIDatePicker = UIDatePicker()
     let timePicker: UIDatePicker = UIDatePicker()
     
-    var dc = ApptDataController.sharedInstance
-    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -53,12 +51,34 @@ class AddApptViewController: UIViewController {
         if let date = outTextDate.text, let time = outTextTime.text,
             let location = outTextLocation.text, let purpose = outTextPurpose.text  {
             //save to data controller
-            let appointment = Appointment(id: -1, dateOfAppt: date, timeOfAppt: time, location: location, purpose: purpose)
             
-            dc.add(appointment: appointment)
+            let session = URLSession.shared
+            let url = URL(string: "http://localhost:9010/api/appointments")!
+            
+            var request = URLRequest(url: url)
+            request.httpMethod = "POST"
+            
+            let date = "\(date) \(time)" as AnyObject
+            let loc = location as AnyObject
+            let pur = purpose as AnyObject
+            
+            let apptDict: [String: AnyObject] = ["datetime": date,
+                "location":loc, "purpose": pur]
+
+            let jsonData = try! JSONSerialization.data(withJSONObject: apptDict, options: [])
+            
+            let task = session.uploadTask(with: request, from: jsonData) { data, response, error in
+                
+                if let httpResponse = response as? HTTPURLResponse {
+                    print("response status code is \(httpResponse.statusCode)")
+                }
+            }
+            
+            task.resume()
+
         }
         
-        performSegue(withIdentifier: "exit", sender: self)
+        //performSegue(withIdentifier: "exit", sender: self)
         
     }
     
