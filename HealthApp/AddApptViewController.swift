@@ -28,6 +28,8 @@ class AddApptViewController: UIViewController {
     let datePicker: UIDatePicker = UIDatePicker()
     let timePicker: UIDatePicker = UIDatePicker()
     
+    let CREATE_APPT_URL = "http://localhost:9010/api/appointment"
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -46,6 +48,14 @@ class AddApptViewController: UIViewController {
         showTimePicker()
     }
     
+    func createAppointment() {
+        HTTPHandler.getJson(urlString: CREATE_APPT_URL, completionHandler: parseDateCreateAppts)
+    }
+    
+    func parseDateCreateAppts(data: Data?) -> Void {
+        
+    }
+    
     @IBAction func actSave(_ sender: Any) {
         
         if let date = outTextDate.text, let time = outTextTime.text,
@@ -53,10 +63,13 @@ class AddApptViewController: UIViewController {
             //save to data controller
             
             let session = URLSession.shared
-            let url = URL(string: "http://localhost:9010/api/appointments")!
+            let url = URL(string: "http://localhost:9010/api/appointment")!
             
             var request = URLRequest(url: url)
             request.httpMethod = "POST"
+            
+            request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+            request.setValue("Powered by Swift!", forHTTPHeaderField: "X-Powered-By")
             
             let date = "\(date) \(time)" as AnyObject
             let loc = location as AnyObject
@@ -69,17 +82,22 @@ class AddApptViewController: UIViewController {
             
             let task = session.uploadTask(with: request, from: jsonData) { data, response, error in
                 
-                if let httpResponse = response as? HTTPURLResponse {
-                    print("response status code is \(httpResponse.statusCode)")
+                if let error = error {
+                    print("error: \(error)")
+                } else {
+                    if let response = response as? HTTPURLResponse {
+                        print("statusCode: \(response.statusCode)")
+                    }
+                    if let data = data, let dataString = String(data: data, encoding: .utf8) {
+                        print("data: \(dataString)")
+                    }
                 }
             }
             
             task.resume()
-
         }
         
-        //performSegue(withIdentifier: "exit", sender: self)
-        
+        performSegue(withIdentifier: "exit", sender: self)
     }
     
     func showDatePicker(){

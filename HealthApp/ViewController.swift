@@ -176,10 +176,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     @IBAction func unwindSegue(_ sender: UIStoryboardSegue) {
         print("unwind Segue")
-        
-        //        upcomingAppointments = dc.upcomingAppointments
-        //        completedAppointments = dc.completedAppointments
-        
+
         outTableView.reloadData()
     }
     
