@@ -48,14 +48,7 @@ class AddApptViewController: UIViewController {
         showTimePicker()
     }
     
-    func createAppointment() {
-        HTTPHandler.getJson(urlString: CREATE_APPT_URL, completionHandler: parseDateCreateAppts)
-    }
-    
-    func parseDateCreateAppts(data: Data?) -> Void {
-        
-    }
-    
+    //Save input as new Appointment.
     @IBAction func actSave(_ sender: Any) {
         
         if let date = outTextDate.text, let time = outTextTime.text,
@@ -88,7 +81,7 @@ class AddApptViewController: UIViewController {
                     if let response = response as? HTTPURLResponse {
                         print("statusCode: \(response.statusCode)")
                     }
-                    if let data = data, let dataString = String(data: data, encoding: .utf8) {
+                    if let data = data, let dataString = String(data: data, encoding: .utf8){
                         print("data: \(dataString)")
                     }
                 }
@@ -156,15 +149,27 @@ class AddApptViewController: UIViewController {
         outTextTime.resignFirstResponder()
     }
     
-
-    /*
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destination.
         // Pass the selected object to the new view controller.
+        
+        let identifier = segue.identifier
+        
+        //send appointment to viewcontroller
+        if (identifier == "exit") {
+            
+            if let date = outTextDate.text, let time = outTextTime.text,
+                let location = outTextLocation.text, let purpose = outTextPurpose.text  {
+                
+                let vc = segue.destination as! ViewController
+                
+                let appointment = Appointment(id: -1, dateOfAppt: date, timeOfAppt: time, location: location, purpose: purpose)
+                
+                vc.appointment = appointment
+            }
+        }
     }
-    */
-
 }

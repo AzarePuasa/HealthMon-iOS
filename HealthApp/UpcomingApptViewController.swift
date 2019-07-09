@@ -57,7 +57,7 @@ class UpcomingApptViewController: UIViewController {
     }
     
     func fetchAppointment(url: String) {
-        HTTPHandler.getJson(urlString: url, completionHandler: parseDataIntoAppt)
+        HTTPHandler.getAPI(urlString: url, completionHandler: parseDataIntoAppt)
     }
     
     func parseDataIntoAppt(data: Data?) -> Void {

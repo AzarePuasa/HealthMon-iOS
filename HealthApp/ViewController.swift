@@ -26,7 +26,10 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     var fetchResults: [Appointment] = []
     
+    var appointment: Appointment!
+    
     let GET_ALL_APPT_URL = "http://localhost:9010/api/appointments"
+    let CREATE_APPT_URL = "http://localhost:9010/api/appointment"
     
     enum DATETIMEINFO {
         case date
@@ -63,15 +66,16 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         //Load Header & Sub-Header
         outLabelHeader.text = "Appointment"
         outLabelSubHeader.text = "Appointments"
+        
+        fetchAllAppointment()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
-        fetchAllAppointment()
     }
     
     func fetchAllAppointment() {
-        HTTPHandler.getJson(urlString: GET_ALL_APPT_URL, completionHandler: parseDataIntoAppts)
+        HTTPHandler.getAPI(urlString: GET_ALL_APPT_URL, completionHandler: parseDataIntoAppts)
     }
     
     func parseDataIntoAppts(data: Data?) -> Void {
@@ -110,6 +114,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        //print("function: \(#function)")
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! ApptTableViewCell
         
         var appointments: [Appointment] = []
@@ -174,10 +179,44 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         }
     }
     
+    func createAppointment() {
+        
+        //create Data object
+        let date = "\(appointment.date) \(appointment.time)" as AnyObject
+        let loc = appointment.location as AnyObject
+        let pur = appointment.purpose as AnyObject
+        
+        let apptDict: [String: AnyObject] = ["datetime": date,
+                                             "location":loc, "purpose": pur]
+        
+        let apptData = try! JSONSerialization.data(withJSONObject: apptDict, options: [])
+        
+        HTTPHandler.postAPI(urlString: CREATE_APPT_URL, dataToUpload: apptData, completionHandler: postAPICreateAppts)
+    }
+    
+    func postAPICreateAppts(data: Data?) -> Void {
+        if let data = data, let dataString = String(data: data, encoding: .utf8) {
+            DispatchQueue.main.async {
+                print("Adding New Appointment: \(dataString)")
+                //update the appointment.
+                self.fetchAllAppointment()
+                self.outTableView.reloadData()
+            }
+        }
+    }
+    
     @IBAction func unwindSegue(_ sender: UIStoryboardSegue) {
         print("unwind Segue")
-
-        outTableView.reloadData()
+        
+        //check id of apptData
+        if (appointment.id == -1) {
+            //call postAPI to create new appointment.
+            print("New Appointment")
+            //createAppointment()
+        } else {
+            //call putAPI to update appointment.
+            print("Update Existing Appointment")
+        }
     }
     
     func dateToday(type: DATETIMEINFO) -> String{
