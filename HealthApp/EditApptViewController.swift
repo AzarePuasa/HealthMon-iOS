@@ -129,6 +129,9 @@ class EditApptViewController: UIViewController {
     }
     
     @IBAction func actSave(_ sender: UIBarButtonItem) {
+        
+        performSegue(withIdentifier: "exittolist", sender: self)
+        
         if let date = outTextDate.text, let time = outTextTime.text,
             let location = outTextLocation.text, let purpose = outTextPurpose.text  {
             //save to data controller
@@ -137,21 +140,35 @@ class EditApptViewController: UIViewController {
             //let update = dc.updateAppointment(id: id, new: appointment)
 
 //            if (update) {
-//                performSegue(withIdentifier: "exittolist", sender: self)
+//
 //            }
         }
     }
     
-    
-
-    /*
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destination.
         // Pass the selected object to the new view controller.
+        
+        let identifier = segue.identifier
+        
+        //send appointment to viewcontroller
+        if (identifier == "exittolist") {
+            
+            if let date = outTextDate.text, let time = outTextTime.text,
+                let location = outTextLocation.text, let purpose = outTextPurpose.text  {
+                
+                let vc = segue.destination as! ViewController
+                
+                let updatedAppt = Appointment(id: appointment.id, dateOfAppt: date, timeOfAppt: time, location: location, purpose: purpose)
+                
+                vc.appointment = updatedAppt
+            }
+        }
+        
     }
-    */
+    
 
 }

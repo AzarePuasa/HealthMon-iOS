@@ -212,7 +212,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         if (appointment.id == -1) {
             //call postAPI to create new appointment.
             print("New Appointment")
-            //createAppointment()
+            createAppointment()
         } else {
             //call putAPI to update appointment.
             print("Update Existing Appointment")

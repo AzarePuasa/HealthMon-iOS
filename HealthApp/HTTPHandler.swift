@@ -45,9 +45,9 @@ class HTTPHandler {
         
         let session = URLSession.shared
         
-        let jsonData = try! JSONSerialization.data(withJSONObject: dataToUpload, options: [])
+        //let jsonData = try! JSONSerialization.data(withJSONObject: dataToUpload, options: [])
         
-        let task = session.uploadTask(with: request, from: jsonData) { data, response, error in
+        let task = session.uploadTask(with: request, from: dataToUpload) { data, response, error in
             
             if let data = data {
                 let httpResponse = response as! HTTPURLResponse
