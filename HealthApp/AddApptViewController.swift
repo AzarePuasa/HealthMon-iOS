@@ -124,7 +124,7 @@ class AddApptViewController: UIViewController {
             if let date = outTextDate.text, let time = outTextTime.text,
                 let location = outTextLocation.text, let purpose = outTextPurpose.text  {
                 
-                let vc = segue.destination as! ViewController
+                let vc = segue.destination as! ApptViewController
                 
                 let appointment = Appointment(id: -1, dateOfAppt: date, timeOfAppt: time, location: location, purpose: purpose)
                 

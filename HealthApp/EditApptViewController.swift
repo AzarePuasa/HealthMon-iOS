@@ -147,7 +147,7 @@ class EditApptViewController: UIViewController {
             if let date = outTextDate.text, let time = outTextTime.text,
                 let location = outTextLocation.text, let purpose = outTextPurpose.text  {
                 
-                let vc = segue.destination as! ViewController
+                let vc = segue.destination as! ApptViewController
                 
                 let updatedAppt = Appointment(id: appointment.id, dateOfAppt: date, timeOfAppt: time, location: location, purpose: purpose)
                 
