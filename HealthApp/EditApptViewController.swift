@@ -129,20 +129,7 @@ class EditApptViewController: UIViewController {
     }
     
     @IBAction func actSave(_ sender: UIBarButtonItem) {
-        
         performSegue(withIdentifier: "exittolist", sender: self)
-        
-        if let date = outTextDate.text, let time = outTextTime.text,
-            let location = outTextLocation.text, let purpose = outTextPurpose.text  {
-            //save to data controller
-//            let appointment = Appointment(id: appointment.id, dateOfAppt: date, timeOfAppt: time, location: location, purpose: purpose)
-            
-            //let update = dc.updateAppointment(id: id, new: appointment)
-
-//            if (update) {
-//
-//            }
-        }
     }
     
     // MARK: - Navigation

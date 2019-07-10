@@ -194,10 +194,35 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         HTTPHandler.postAPI(urlString: CREATE_APPT_URL, dataToUpload: apptData, completionHandler: postAPICreateAppts)
     }
     
+    func updateAppointment() {
+        //create Data object
+        let date = "\(appointment.date) \(appointment.time)" as AnyObject
+        let loc = appointment.location as AnyObject
+        let pur = appointment.purpose as AnyObject
+        
+        let apptDict: [String: AnyObject] = ["datetime": date,
+                                             "location":loc, "purpose": pur]
+        
+        let apptData = try! JSONSerialization.data(withJSONObject: apptDict, options: [])
+        
+        HTTPHandler.putAPI(urlString: "http://localhost:9010/api/appointment/\(appointment.id)", dataToUpload: apptData, completionHandler: putAPIUpdateApp)
+    }
+    
     func postAPICreateAppts(data: Data?) -> Void {
         if let data = data, let dataString = String(data: data, encoding: .utf8) {
             DispatchQueue.main.async {
                 print("Adding New Appointment: \(dataString)")
+                //update the appointment.
+                self.fetchAllAppointment()
+                self.outTableView.reloadData()
+            }
+        }
+    }
+    
+    func putAPIUpdateApp(data: Data?) -> Void {
+        if let data = data, let dataString = String(data: data, encoding: .utf8) {
+            DispatchQueue.main.async {
+                print("Updating Appointment: \(dataString)")
                 //update the appointment.
                 self.fetchAllAppointment()
                 self.outTableView.reloadData()
@@ -216,6 +241,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         } else {
             //call putAPI to update appointment.
             print("Update Existing Appointment")
+            updateAppointment()
         }
     }
     
@@ -290,7 +316,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
                 print("Completed: Date: \(dateToday(type: DATETIMEINFO.date)) time: \(dateToday(type: DATETIMEINFO.date))")
             }
         }
-        
+
         return completedAppts
     }
 }
