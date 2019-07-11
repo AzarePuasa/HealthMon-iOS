@@ -1,8 +1,8 @@
 //
-//  ViewController.swift
+//  ApptViewController.swift
 //  HealthApp
 //
-//  Created by Noorazare B Puasa on 10/4/19.
+//  Created by Noorazare B Puasa on 11/7/19.
 //  Copyright © 2019 Noorazare B Puasa. All rights reserved.
 //
 
@@ -89,7 +89,7 @@ class ApptViewController: UIViewController, UITableViewDelegate, UITableViewData
                 
                 print("Upcoming: \(self.upcomingAppointments.count)")
                 print("Completed: \(self.completedAppointments.count)")
-
+                
                 DispatchQueue.main.async {
                     self.outTableView.reloadData()
                     print("Updating View")
@@ -141,7 +141,7 @@ class ApptViewController: UIViewController, UITableViewDelegate, UITableViewData
                 label.text = appt.location
             }
         }
-
+        
         return cell
     }
     
@@ -316,8 +316,8 @@ class ApptViewController: UIViewController, UITableViewDelegate, UITableViewData
                 print("Completed: Date: \(dateToday(type: DATETIMEINFO.date)) time: \(dateToday(type: DATETIMEINFO.date))")
             }
         }
-
+        
         return completedAppts
     }
+    
 }
-
