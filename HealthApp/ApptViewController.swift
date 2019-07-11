@@ -50,8 +50,6 @@ class ApptViewController: UIViewController, UITableViewDelegate, UITableViewData
         }
     }
     
-    var dc = ApptDataController.sharedInstance
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -80,10 +78,10 @@ class ApptViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     func parseDataIntoAppts(data: Data?) -> Void {
         if let data = data {
-            let object = ApptJSONParser.parseAppts(data: data)
+            let object = JSONParser.parseItems(data: data)
             if let object = object {
                 self.fetchResults = ApptDataProcessor.mapJsonToAppts(object: object)
-                print("Fetch Result: \(fetchResults.count)")
+                print("Appt Records Fetched: \(fetchResults.count)")
                 self.upcomingAppointments = upcomingAppointments(appointments: self.fetchResults)
                 self.completedAppointments = completedAppointments(appointments: self.fetchResults)
                 

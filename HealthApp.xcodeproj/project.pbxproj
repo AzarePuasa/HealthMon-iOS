@@ -15,12 +15,13 @@
 		EBAE9821225E23E400F2C518 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EBAE981F225E23E400F2C518 /* Main.storyboard */; };
 		EBAE9823225E23E600F2C518 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EBAE9822225E23E600F2C518 /* Assets.xcassets */; };
 		EBAE9826225E23E600F2C518 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EBAE9824225E23E600F2C518 /* LaunchScreen.storyboard */; };
+		EBB2314422D7977D00560335 /* WeightDataProcessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBB2314322D7977D00560335 /* WeightDataProcessor.swift */; };
 		EBC6260D229CFE4C009CD035 /* ApptDataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBC6260C229CFE4C009CD035 /* ApptDataController.swift */; };
 		EBC62615229D04E5009CD035 /* ApptTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBC62614229D04E5009CD035 /* ApptTableViewCell.swift */; };
 		EBCC34B822B4BA3D007A1A82 /* UpcomingApptViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBCC34B722B4BA3D007A1A82 /* UpcomingApptViewController.swift */; };
 		EBCC34BA22B4CADD007A1A82 /* AddApptViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBCC34B922B4CADD007A1A82 /* AddApptViewController.swift */; };
 		EBDD681822CECDCD00D120C8 /* HTTPHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBDD681722CECDCD00D120C8 /* HTTPHandler.swift */; };
-		EBDD681A22CECE3000D120C8 /* ApptJSONParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBDD681922CECE3000D120C8 /* ApptJSONParser.swift */; };
+		EBDD681A22CECE3000D120C8 /* JSONParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBDD681922CECE3000D120C8 /* JSONParser.swift */; };
 		EBDD681C22CECF6700D120C8 /* ApptDataProcessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBDD681B22CECF6700D120C8 /* ApptDataProcessor.swift */; };
 		EBE4916022B565B00088D66E /* EditApptViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBE4915F22B565B00088D66E /* EditApptViewController.swift */; };
 		EBE8F627227D4D7A00E7912D /* Appt.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBE8F626227D4D7A00E7912D /* Appt.swift */; };
@@ -37,12 +38,13 @@
 		EBAE9822225E23E600F2C518 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		EBAE9825225E23E600F2C518 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		EBAE9827225E23E600F2C518 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EBB2314322D7977D00560335 /* WeightDataProcessor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeightDataProcessor.swift; sourceTree = "<group>"; };
 		EBC6260C229CFE4C009CD035 /* ApptDataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApptDataController.swift; sourceTree = "<group>"; };
 		EBC62614229D04E5009CD035 /* ApptTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApptTableViewCell.swift; sourceTree = "<group>"; };
 		EBCC34B722B4BA3D007A1A82 /* UpcomingApptViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpcomingApptViewController.swift; sourceTree = "<group>"; };
 		EBCC34B922B4CADD007A1A82 /* AddApptViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddApptViewController.swift; sourceTree = "<group>"; };
 		EBDD681722CECDCD00D120C8 /* HTTPHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPHandler.swift; sourceTree = "<group>"; };
-		EBDD681922CECE3000D120C8 /* ApptJSONParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApptJSONParser.swift; sourceTree = "<group>"; };
+		EBDD681922CECE3000D120C8 /* JSONParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONParser.swift; sourceTree = "<group>"; };
 		EBDD681B22CECF6700D120C8 /* ApptDataProcessor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApptDataProcessor.swift; sourceTree = "<group>"; };
 		EBE4915F22B565B00088D66E /* EditApptViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditApptViewController.swift; sourceTree = "<group>"; };
 		EBE8F626227D4D7A00E7912D /* Appt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Appt.swift; sourceTree = "<group>"; };
@@ -90,12 +92,13 @@
 				EBCC34B922B4CADD007A1A82 /* AddApptViewController.swift */,
 				EBE4915F22B565B00088D66E /* EditApptViewController.swift */,
 				EBDD681722CECDCD00D120C8 /* HTTPHandler.swift */,
-				EBDD681922CECE3000D120C8 /* ApptJSONParser.swift */,
+				EBDD681922CECE3000D120C8 /* JSONParser.swift */,
 				EBDD681B22CECF6700D120C8 /* ApptDataProcessor.swift */,
 				EBA0886022D6BC97004AB184 /* WeightViewController.swift */,
 				EB97E88822D6F75F00C55C09 /* ApptViewController.swift */,
 				EB97E88A22D6FB8700C55C09 /* Weight.swift */,
 				EB97E88C22D6FED100C55C09 /* WeightTableViewCell.swift */,
+				EBB2314322D7977D00560335 /* WeightDataProcessor.swift */,
 			);
 			path = HealthApp;
 			sourceTree = "<group>";
@@ -174,7 +177,8 @@
 				EBA0886122D6BC97004AB184 /* WeightViewController.swift in Sources */,
 				EBDD681822CECDCD00D120C8 /* HTTPHandler.swift in Sources */,
 				EBE4916022B565B00088D66E /* EditApptViewController.swift in Sources */,
-				EBDD681A22CECE3000D120C8 /* ApptJSONParser.swift in Sources */,
+				EBDD681A22CECE3000D120C8 /* JSONParser.swift in Sources */,
+				EBB2314422D7977D00560335 /* WeightDataProcessor.swift in Sources */,
 				EBE8F627227D4D7A00E7912D /* Appt.swift in Sources */,
 				EBC62615229D04E5009CD035 /* ApptTableViewCell.swift in Sources */,
 				EBC6260D229CFE4C009CD035 /* ApptDataController.swift in Sources */,

@@ -20,6 +20,8 @@ class WeightViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     var weightRecords: [Weight]  = []
     
+    let GET_ALL_WEIGHT_URL = "http://localhost:9010/api/weights"
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -36,6 +38,28 @@ class WeightViewController: UIViewController, UITableViewDelegate, UITableViewDa
         outLabelSubHeader.text = "Weight Records"
         
         //TODO: get weight records.
+        fetchAllWeights()
+    }
+    
+    func fetchAllWeights() {
+        HTTPHandler.getAPI(urlString: GET_ALL_WEIGHT_URL, completionHandler: parseDataIntoWeights)
+    }
+    
+    func parseDataIntoWeights(data: Data?) -> Void {
+        //TODO: closure for getAPI
+        if let data = data {
+            let object = JSONParser.parseItems(data: data)
+            
+            if let object = object {
+                self.weightRecords = WeightDataProcessor.mapJsonToWeights(object: object)
+                print("Weight Records Fetched: \(weightRecords.count)")
+                
+                DispatchQueue.main.async {
+                    self.outTableView.reloadData()
+                    print("Updating View")
+                }
+            }
+        }
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -43,11 +67,27 @@ class WeightViewController: UIViewController, UITableViewDelegate, UITableViewDa
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        <#code#>
+        
+        let cell = tableView.dequeueReusableCell(withIdentifier: "weightcell", for: indexPath) as! WeightTableViewCell
+        
+        //TODO: map data to label.
+        let row = indexPath.row
+        
+        let weightRecord = weightRecords[row]
+        
+        if let label = cell.outDate {
+            label.text = weightRecord.date
+        }
+        
+        if let label = cell.outWeightRecord {
+            label.text = weightRecord.weight
+        }
+        
+        return cell
     }
     
 
-    /*
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
@@ -55,6 +95,6 @@ class WeightViewController: UIViewController, UITableViewDelegate, UITableViewDa
         // Get the new view controller using segue.destination.
         // Pass the selected object to the new view controller.
     }
-    */
+    
 
 }

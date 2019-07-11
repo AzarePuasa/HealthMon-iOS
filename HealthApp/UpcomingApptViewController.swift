@@ -62,7 +62,7 @@ class UpcomingApptViewController: UIViewController {
     
     func parseDataIntoAppt(data: Data?) -> Void {
         if let data = data {
-            let object = ApptJSONParser.parseAppt(data: data)
+            let object = JSONParser.parseItem(data: data)
             if let object = object {
                 self.appointment = ApptDataProcessor.mapJsonToAppt(object: object)
                 print("Appointment: \(self.appointment.id)")

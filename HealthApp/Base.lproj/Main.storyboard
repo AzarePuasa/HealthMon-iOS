@@ -10,7 +10,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Weight View Controller-->
+        <!--Health Monitoring-->
         <scene sceneID="DwF-A3-bgm">
             <objects>
                 <viewController id="exa-yE-slu" customClass="WeightViewController" customModule="HealthApp" customModuleProvider="target" sceneMemberID="viewController">
@@ -107,7 +107,9 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="l4s-1e-m9L"/>
                     </view>
-                    <navigationItem key="navigationItem" id="8tb-Je-Xgn"/>
+                    <navigationItem key="navigationItem" title="Health Monitoring" id="bj4-Ak-7SL">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="Dc5-Iz-Vtb"/>
+                    </navigationItem>
                     <connections>
                         <outlet property="outImageHeader" destination="CTo-r4-UMU" id="CEn-jw-y4J"/>
                         <outlet property="outLabelHeader" destination="bfp-6u-1gx" id="Ygw-cR-Jr2"/>
