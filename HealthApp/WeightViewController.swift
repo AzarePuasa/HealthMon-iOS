@@ -21,6 +21,9 @@ class WeightViewController: UIViewController, UITableViewDelegate, UITableViewDa
     var weightRecords: [Weight]  = []
     
     let GET_ALL_WEIGHT_URL = "http://localhost:9010/api/weights"
+    let CREATE_WEIGHT_URL = "http://localhost:9010/api/weight"
+    
+    var newWeightRecord: Weight!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,7 +37,7 @@ class WeightViewController: UIViewController, UITableViewDelegate, UITableViewDa
         outImageHeader.image = image
         
         //Load Header & Sub-Header
-        outLabelHeader.text = "Weight"
+        outLabelHeader.text = "My Weight"
         outLabelSubHeader.text = "Weight Records"
         
         //TODO: get weight records.
@@ -96,5 +99,38 @@ class WeightViewController: UIViewController, UITableViewDelegate, UITableViewDa
         // Pass the selected object to the new view controller.
     }
     
+    @IBAction func unwindWeightSegue(_ sender: UIStoryboardSegue) {
+        print("unwind Segue")
+        
+        createWeight()
+    }
+    
+    func createWeight() {
+        //TODO: start process of creating new Weight Record
+        
+        //create Data object
+        let date = newWeightRecord.date as AnyObject
+        let weight = newWeightRecord.weight as AnyObject
+        
+        let weightDict: [String: AnyObject] = ["date": date,
+                                             "weight":weight]
+        
+        let weightData = try! JSONSerialization.data(withJSONObject: weightDict, options: [])
+        
+        HTTPHandler.postAPI(urlString: CREATE_WEIGHT_URL, dataToUpload: weightData, completionHandler: postAPICreateWeight)
+        
+    }
+    
+    func postAPICreateWeight(data: Data?) -> Void {
+        //TODO: fetch all weights again
+        if let data = data, let dataString = String(data: data, encoding: .utf8) {
+            DispatchQueue.main.async {
+                print("Adding New Weight: \(dataString)")
+                //update the appointment.
+                self.fetchAllWeights()
+                self.outTableView.reloadData()
+            }
+        }
+    }
 
 }
