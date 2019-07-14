@@ -11,6 +11,11 @@
 		EB97E88922D6F75F00C55C09 /* ApptViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB97E88822D6F75F00C55C09 /* ApptViewController.swift */; };
 		EB97E88B22D6FB8700C55C09 /* Weight.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB97E88A22D6FB8700C55C09 /* Weight.swift */; };
 		EB97E88D22D6FED100C55C09 /* WeightTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB97E88C22D6FED100C55C09 /* WeightTableViewCell.swift */; };
+		EBA01EB922DA9EDA00D3DDA8 /* BPViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBA01EB822DA9EDA00D3DDA8 /* BPViewController.swift */; };
+		EBA01EBB22DACA8D00D3DDA8 /* BPReading.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBA01EBA22DACA8D00D3DDA8 /* BPReading.swift */; };
+		EBA01EBD22DACDDC00D3DDA8 /* BPDailyReading.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBA01EBC22DACDDC00D3DDA8 /* BPDailyReading.swift */; };
+		EBA01EBF22DAD71E00D3DDA8 /* BPTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBA01EBE22DAD71E00D3DDA8 /* BPTableViewCell.swift */; };
+		EBA01EC122DADDC600D3DDA8 /* AddBPViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBA01EC022DADDC600D3DDA8 /* AddBPViewController.swift */; };
 		EBA0886122D6BC97004AB184 /* WeightViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBA0886022D6BC97004AB184 /* WeightViewController.swift */; };
 		EBAE981C225E23E400F2C518 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBAE981B225E23E400F2C518 /* AppDelegate.swift */; };
 		EBAE9821225E23E400F2C518 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EBAE981F225E23E400F2C518 /* Main.storyboard */; };
@@ -33,6 +38,11 @@
 		EB97E88822D6F75F00C55C09 /* ApptViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApptViewController.swift; sourceTree = "<group>"; };
 		EB97E88A22D6FB8700C55C09 /* Weight.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Weight.swift; sourceTree = "<group>"; };
 		EB97E88C22D6FED100C55C09 /* WeightTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeightTableViewCell.swift; sourceTree = "<group>"; };
+		EBA01EB822DA9EDA00D3DDA8 /* BPViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BPViewController.swift; sourceTree = "<group>"; };
+		EBA01EBA22DACA8D00D3DDA8 /* BPReading.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BPReading.swift; sourceTree = "<group>"; };
+		EBA01EBC22DACDDC00D3DDA8 /* BPDailyReading.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BPDailyReading.swift; sourceTree = "<group>"; };
+		EBA01EBE22DAD71E00D3DDA8 /* BPTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BPTableViewCell.swift; sourceTree = "<group>"; };
+		EBA01EC022DADDC600D3DDA8 /* AddBPViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddBPViewController.swift; sourceTree = "<group>"; };
 		EBA0886022D6BC97004AB184 /* WeightViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeightViewController.swift; sourceTree = "<group>"; };
 		EBAE9818225E23E400F2C518 /* HealthApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HealthApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EBAE981B225E23E400F2C518 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -83,6 +93,7 @@
 			isa = PBXGroup;
 			children = (
 				EBAE981B225E23E400F2C518 /* AppDelegate.swift */,
+				EBA01EBA22DACA8D00D3DDA8 /* BPReading.swift */,
 				EBAE981F225E23E400F2C518 /* Main.storyboard */,
 				EBAE9822225E23E600F2C518 /* Assets.xcassets */,
 				EBAE9824225E23E600F2C518 /* LaunchScreen.storyboard */,
@@ -102,6 +113,10 @@
 				EB97E88C22D6FED100C55C09 /* WeightTableViewCell.swift */,
 				EBB2314322D7977D00560335 /* WeightDataProcessor.swift */,
 				EB01770122D8A247007B0FB8 /* AddWeightViewController.swift */,
+				EBA01EB822DA9EDA00D3DDA8 /* BPViewController.swift */,
+				EBA01EBC22DACDDC00D3DDA8 /* BPDailyReading.swift */,
+				EBA01EBE22DAD71E00D3DDA8 /* BPTableViewCell.swift */,
+				EBA01EC022DADDC600D3DDA8 /* AddBPViewController.swift */,
 			);
 			path = HealthApp;
 			sourceTree = "<group>";
@@ -177,16 +192,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EBA01EBB22DACA8D00D3DDA8 /* BPReading.swift in Sources */,
 				EBA0886122D6BC97004AB184 /* WeightViewController.swift in Sources */,
 				EBDD681822CECDCD00D120C8 /* HTTPHandler.swift in Sources */,
+				EBA01EB922DA9EDA00D3DDA8 /* BPViewController.swift in Sources */,
 				EBE4916022B565B00088D66E /* EditApptViewController.swift in Sources */,
 				EBDD681A22CECE3000D120C8 /* JSONParser.swift in Sources */,
 				EBB2314422D7977D00560335 /* WeightDataProcessor.swift in Sources */,
+				EBA01EBD22DACDDC00D3DDA8 /* BPDailyReading.swift in Sources */,
 				EBE8F627227D4D7A00E7912D /* Appt.swift in Sources */,
 				EBC62615229D04E5009CD035 /* ApptTableViewCell.swift in Sources */,
 				EBC6260D229CFE4C009CD035 /* ApptDataController.swift in Sources */,
 				EB01770222D8A247007B0FB8 /* AddWeightViewController.swift in Sources */,
 				EB97E88D22D6FED100C55C09 /* WeightTableViewCell.swift in Sources */,
+				EBA01EC122DADDC600D3DDA8 /* AddBPViewController.swift in Sources */,
+				EBA01EBF22DAD71E00D3DDA8 /* BPTableViewCell.swift in Sources */,
 				EB97E88B22D6FB8700C55C09 /* Weight.swift in Sources */,
 				EBCC34B822B4BA3D007A1A82 /* UpcomingApptViewController.swift in Sources */,
 				EBAE981C225E23E400F2C518 /* AppDelegate.swift in Sources */,
