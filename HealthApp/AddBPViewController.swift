@@ -28,17 +28,32 @@ class AddBPViewController: UIViewController {
         //Load Header & Sub-Header
         outLabelHeader.text = "Blood Pressure"
         outLabelSubHeader.text = "Add BP Reading"
+        
+        //TODO: Autopopulate the date field and Type field.
+        //Type field:
+        //MORNING if time is after 7am and before 12pm.
+        //AFTERNOON if time is after 12pm and before 7pm.
+        //EVENING if time is after 7pm and before 12am.
+        //INVALID if time is after 12am to 7am.
+        
+        //if type is INVALID, disable save button.
+        
+        //set default systolic pickerview to 120
+        //set default diastolic pickerview to 80
     }
     
 
-    /*
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destination.
         // Pass the selected object to the new view controller.
+        
+        //TODO: Send data back to BPViewController
+        
     }
-    */
+    
 
 }
