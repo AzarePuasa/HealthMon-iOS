@@ -28,6 +28,20 @@ When user clicks on the '+' at the top right of the screen, a show segue directs
 
 Clicking on a row invoke a show segue to the View Appointment screen. The selected appointment details will be send forward to the View Appointment View controller
 
-### Add Appointment
-
 ### View Appointment
+This viewcontroller displays selected user's health appointments. It consists of labels to display date, time, location and purpose of health appointment. If the appointment is Upcoming, the 'Edit' button will be enabled and it will be disable when the appointment is Completed. 
+
+Clicking the Edit button will invoke the Show segue to Edit Appointment View controller. The appointment object is send to the source view controller.  
+
+
+### Add Appointment
+This viewcontroller is for user's create new health appointments. The view consist of a form with 4 input text fields; date, time, location and purpose. The date and time are text field with picker view. After selecting date/time, user dismisses the picker view with the 'Done' button which will populate the text field with the date/time selected. The location field is compulsory while the purpose field is optional. Once form is completed, user will press the save button.
+
+The save button action will trigger the unwind segue back to Appointments Viewcontroller and returned the Appointment object. The return object will have id of -1 to inform the source view controller to create new Appointment record.  
+
+Clear button will clear the text fields.
+
+### Edit Appointment
+This viewcontroller is for user's edit existing Upcoming health appointments. this viewcontroller has similar to Add Appointment Viewcontroller but difference is the details of appointment will be loaded and once form is completed, user will press the save button.
+
+The save button action will trigger the unwind segue back to Appointments Viewcontroller and returned the Appointment object. The return object will have a non zero id to inform the source view controller to update the record Appointment.  
