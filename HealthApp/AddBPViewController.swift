@@ -16,6 +16,8 @@ class AddBPViewController: UIViewController {
     
     @IBOutlet weak var outLabelSubHeader: UILabel!
     
+    var bpReading: BPDailyReading?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -40,6 +42,10 @@ class AddBPViewController: UIViewController {
         
         //set default systolic pickerview to 120
         //set default diastolic pickerview to 80
+        
+        //check BP Daily Reading exist for today's date.
+        //If exist get that Daily Reading record.
+        // else create new BP Daily Reading record.
     }
     
 
@@ -52,6 +58,7 @@ class AddBPViewController: UIViewController {
         // Pass the selected object to the new view controller.
         
         //TODO: Send data back to BPViewController
+        
         
     }
     

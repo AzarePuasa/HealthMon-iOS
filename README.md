@@ -8,10 +8,8 @@ When the app is loaded, user is presented with a view with 3 tabs.
 - Weight Records
 - Blood Pressure Readings
 
-## Health Appointments 
+### Health Appointments 
 This function enables users to perform list, view, add and edit health appointments.
-
-### Health Appointments
 
 #### Appointments
 This viewcontroller list the user's health appointments. The view makes use of 2 main IU Object; a segmented control with 2 labels; 'Upcoming' and 'Completed' and a table view. 
@@ -45,3 +43,13 @@ Clear button will clear the text fields.
 This viewcontroller is for user's edit existing Upcoming health appointments. this viewcontroller has similar to Add Appointment Viewcontroller but difference is the details of appointment will be loaded and once form is completed, user will press the save button.
 
 The save button action will trigger the unwind segue back to Appointments Viewcontroller and returned the Appointment object. The return object will have a non zero id to inform the source view controller to update the record Appointment.  
+
+### Weight Records
+
+#### Weights
+TBC
+
+#### Add Weights
+TBC
+
+### Blood Pressure Readings
