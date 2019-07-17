@@ -8,8 +8,10 @@
 
 import UIKit
 
-class BPViewController: UIViewController {
-
+class BPViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+    
+    @IBOutlet weak var outTableView: UITableView!
+    
     @IBOutlet weak var outImageHeader: UIImageView!
     
     @IBOutlet weak var outLabelHeader: UILabel!
@@ -17,6 +19,8 @@ class BPViewController: UIViewController {
     @IBOutlet weak var outLabelSubHeader: UILabel!
     
     var DailyBPReadings: [BPDailyReading] = []
+    
+    let GET_ALL_BPREADING_URL = "http://localhost:9010/api/bpreadings"
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,12 +35,59 @@ class BPViewController: UIViewController {
         outLabelHeader.text = "Blood Pressure"
         outLabelSubHeader.text = "BP Readings"
         
-        //TODO: Fetch BP Readings and organize it into Daily BPReadings
-        //each row will return date, type, reading. Find the DailyBPReading
-        //object with the date in the array and write the value. Else
-        //create a new DailyBPReading object.
+        //TODO: Fetch BP Daily Readings. Each row will
+        // return id, date, morningbp, afternoonbp & eveningbp.
+        fetchAllBPReadings()
+    }
+    
+    func fetchAllBPReadings() {
+        HTTPHandler.getAPI(urlString: GET_ALL_BPREADING_URL, completionHandler: parseDataIntoDailyReadings)
+    }
+    
+    func parseDataIntoDailyReadings(data: Data?) -> Void {
+        if let data = data {
+            let object = JSONParser.parseItems(data: data)
+            if let object = object {
+                self.DailyBPReadings = BPDataProcessor.mapJsonToDailyBPReading(object: object)
+                print("BP Readings Fetched: \(DailyBPReadings.count)")
+                
+                DispatchQueue.main.async {
+                    self.outTableView.reloadData()
+                    print("Updating View")
+                }
+            }
+        }
     }
 
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return DailyBPReadings.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "bpcell", for: indexPath) as! BPTableViewCell
+        
+        let row = indexPath.row
+        
+        let dailyBPReading = DailyBPReadings[row]
+        
+        if let label = cell.outLabelDate{
+            label.text = dailyBPReading.date
+        }
+        
+        if let label = cell.outLabelMorningBP{
+            label.text = dailyBPReading.morningBP
+        }
+        
+        if let label = cell.outLabelAfternoonBP{
+            label.text = dailyBPReading.afternoonBP
+        }
+        
+        if let label = cell.outLabelEveningBP{
+            label.text = dailyBPReading.eveningBP
+        }
+        
+        return cell
+    }
     
     // MARK: - Navigation
 
