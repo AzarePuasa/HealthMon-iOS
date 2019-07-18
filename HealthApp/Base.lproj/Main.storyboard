@@ -782,9 +782,9 @@
                                         <rect key="frame" x="0.0" y="50" width="335" height="264"/>
                                         <subviews>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Type" textAlignment="center" minimumFontSize="30" translatesAutoresizingMaskIntoConstraints="NO" id="JYc-e3-2BO">
-                                                <rect key="frame" x="117.5" y="0.0" width="100" height="33"/>
+                                                <rect key="frame" x="92.5" y="0.0" width="150" height="33"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="width" constant="100" id="VDr-jC-Nfh"/>
+                                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="150" id="rKt-5g-78e"/>
                                                 </constraints>
                                                 <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
@@ -796,8 +796,8 @@
                                                     <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wy0-ZD-Y1M">
                                                         <rect key="frame" x="0.0" y="0.0" width="140" height="216"/>
                                                         <connections>
-                                                            <outlet property="dataSource" destination="hMz-S6-IdL" id="nD7-7l-a0I"/>
-                                                            <outlet property="delegate" destination="hMz-S6-IdL" id="JkC-Sd-3Ak"/>
+                                                            <outlet property="dataSource" destination="HSO-3C-kX9" id="TwX-Bp-dTi"/>
+                                                            <outlet property="delegate" destination="HSO-3C-kX9" id="CnL-xI-2GQ"/>
                                                         </connections>
                                                     </pickerView>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="/" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Uq3-P4-6R4">
@@ -811,6 +811,10 @@
                                                     </label>
                                                     <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1f8-rI-uhr">
                                                         <rect key="frame" x="180" y="0.0" width="115" height="216"/>
+                                                        <connections>
+                                                            <outlet property="dataSource" destination="HSO-3C-kX9" id="hNv-QP-NCi"/>
+                                                            <outlet property="delegate" destination="HSO-3C-kX9" id="Tbj-Aq-dou"/>
+                                                        </connections>
                                                     </pickerView>
                                                 </subviews>
                                             </stackView>
@@ -834,11 +838,18 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="rt5-f8-p5R"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Health Monitoring" id="Kq3-Xo-wl4"/>
+                    <navigationItem key="navigationItem" title="Health Monitoring" id="Kq3-Xo-wl4">
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="Kbj-3I-Pe2"/>
+                    </navigationItem>
                     <connections>
+                        <outlet property="outBtnSave" destination="Kbj-3I-Pe2" id="E99-JJ-ldN"/>
+                        <outlet property="outDateText" destination="1jk-X9-WQc" id="tC7-hb-ziI"/>
                         <outlet property="outImageHeader" destination="YwG-g4-LUJ" id="CRP-6s-x5d"/>
                         <outlet property="outLabelHeader" destination="KzQ-fv-eCj" id="GrK-zb-B1B"/>
                         <outlet property="outLabelSubHeader" destination="kbu-dB-QTH" id="q8O-By-bpd"/>
+                        <outlet property="outPickerViewDiastolic" destination="1f8-rI-uhr" id="w3D-TM-uWr"/>
+                        <outlet property="outPickerViewSystolic" destination="wy0-ZD-Y1M" id="Xc1-ou-dOz"/>
+                        <outlet property="outTextType" destination="JYc-e3-2BO" id="DqI-tp-iQK"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dEF-LX-hgL" userLabel="First Responder" sceneMemberID="firstResponder"/>

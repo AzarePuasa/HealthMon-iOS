@@ -23,7 +23,7 @@
 		EBAE9823225E23E600F2C518 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EBAE9822225E23E600F2C518 /* Assets.xcassets */; };
 		EBAE9826225E23E600F2C518 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EBAE9824225E23E600F2C518 /* LaunchScreen.storyboard */; };
 		EBB2314422D7977D00560335 /* WeightDataProcessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBB2314322D7977D00560335 /* WeightDataProcessor.swift */; };
-		EBC6260D229CFE4C009CD035 /* ApptDataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBC6260C229CFE4C009CD035 /* ApptDataController.swift */; };
+		EBC6260D229CFE4C009CD035 /* HealthMonCommon.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBC6260C229CFE4C009CD035 /* HealthMonCommon.swift */; };
 		EBC62615229D04E5009CD035 /* ApptTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBC62614229D04E5009CD035 /* ApptTableViewCell.swift */; };
 		EBCC34B822B4BA3D007A1A82 /* UpcomingApptViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBCC34B722B4BA3D007A1A82 /* UpcomingApptViewController.swift */; };
 		EBCC34BA22B4CADD007A1A82 /* AddApptViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBCC34B922B4CADD007A1A82 /* AddApptViewController.swift */; };
@@ -53,7 +53,7 @@
 		EBAE9825225E23E600F2C518 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		EBAE9827225E23E600F2C518 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EBB2314322D7977D00560335 /* WeightDataProcessor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeightDataProcessor.swift; sourceTree = "<group>"; };
-		EBC6260C229CFE4C009CD035 /* ApptDataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApptDataController.swift; sourceTree = "<group>"; };
+		EBC6260C229CFE4C009CD035 /* HealthMonCommon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthMonCommon.swift; sourceTree = "<group>"; };
 		EBC62614229D04E5009CD035 /* ApptTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApptTableViewCell.swift; sourceTree = "<group>"; };
 		EBCC34B722B4BA3D007A1A82 /* UpcomingApptViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpcomingApptViewController.swift; sourceTree = "<group>"; };
 		EBCC34B922B4CADD007A1A82 /* AddApptViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddApptViewController.swift; sourceTree = "<group>"; };
@@ -101,7 +101,7 @@
 				EBAE9824225E23E600F2C518 /* LaunchScreen.storyboard */,
 				EBAE9827225E23E600F2C518 /* Info.plist */,
 				EBE8F626227D4D7A00E7912D /* Appt.swift */,
-				EBC6260C229CFE4C009CD035 /* ApptDataController.swift */,
+				EBC6260C229CFE4C009CD035 /* HealthMonCommon.swift */,
 				EBC62614229D04E5009CD035 /* ApptTableViewCell.swift */,
 				EBCC34B722B4BA3D007A1A82 /* UpcomingApptViewController.swift */,
 				EBCC34B922B4CADD007A1A82 /* AddApptViewController.swift */,
@@ -205,7 +205,7 @@
 				EBA01EBD22DACDDC00D3DDA8 /* BPDailyReading.swift in Sources */,
 				EBE8F627227D4D7A00E7912D /* Appt.swift in Sources */,
 				EBC62615229D04E5009CD035 /* ApptTableViewCell.swift in Sources */,
-				EBC6260D229CFE4C009CD035 /* ApptDataController.swift in Sources */,
+				EBC6260D229CFE4C009CD035 /* HealthMonCommon.swift in Sources */,
 				EB01770222D8A247007B0FB8 /* AddWeightViewController.swift in Sources */,
 				EB97E88D22D6FED100C55C09 /* WeightTableViewCell.swift in Sources */,
 				EBA01EC122DADDC600D3DDA8 /* AddBPViewController.swift in Sources */,
