@@ -48,7 +48,7 @@ class BPViewController: UIViewController, UITableViewDelegate, UITableViewDataSo
         if let data = data {
             let object = JSONParser.parseItems(data: data)
             if let object = object {
-                self.DailyBPReadings = BPDataProcessor.mapJsonToDailyBPReading(object: object)
+                self.DailyBPReadings = BPDataProcessor.mapJsonToDailyBPReadings(object: object)
                 print("BP Readings Fetched: \(DailyBPReadings.count)")
                 
                 DispatchQueue.main.async {
@@ -95,6 +95,13 @@ class BPViewController: UIViewController, UITableViewDelegate, UITableViewDataSo
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destination.
         // Pass the selected object to the new view controller.
+    }
+    
+    @IBAction func unwindBPSegue(_ sender: UIStoryboardSegue) {
+        print("unwind Segue")
+    
+        //TODO: Handle return of new BP Reading.
+        // Call Update BP Reading REST API endpoint.
     }
     
 

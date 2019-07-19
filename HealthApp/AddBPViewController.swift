@@ -95,7 +95,9 @@ class AddBPViewController: UIViewController, UIPickerViewDataSource, UIPickerVie
         outLabelSubHeader.text = "Add BP Reading"
         
         //TODO: Autopopulate the date field.
-        outDateText.text = HealthMonCommon.dateToday(type: HealthMonCommon.DATETIMEINFO.date)
+        let today = HealthMonCommon.dateToday(type: HealthMonCommon.DATETIMEINFO.date)
+        
+        outDateText.text = today
         
         outDateText.isEnabled = false
         
@@ -141,7 +143,33 @@ class AddBPViewController: UIViewController, UIPickerViewDataSource, UIPickerVie
         // check BP Daily Reading exist for today's date.
         // If exist get that Daily Reading record.
         // else create new BP Daily Reading record.
+        
+        getTodaysBPReading(url: "http://localhost:9010/api/getreadingbydate/\(today)" )
     }
+    
+    func getTodaysBPReading(url: String) {
+        HTTPHandler.getAPI(urlString: url, completionHandler: parseDataIntoBP)
+    }
+    
+    func parseDataIntoBP(data: Data?) -> Void {
+        if let data = data {
+            let object = JSONParser.parseItem(data: data)
+             if let object = object {
+                self.bpReading = BPDataProcessor.mapJsonToDailyBPReading(object: object)
+                
+                if let tempBPReading = self.bpReading {
+                    print("Daily BP Reading with id \(tempBPReading.id)")
+                } else {
+                    print("Creating New BP Daily Reading entry")
+                }
+            }
+        }
+    }
+    
+    @IBAction func actSave(_ sender: Any) {
+        //TODO: Perform unwind seque to BPViewController.
+    }
+    
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         if(pickerView == outPickerViewSystolic) {
@@ -186,9 +214,10 @@ class AddBPViewController: UIViewController, UIPickerViewDataSource, UIPickerVie
         // Get the new view controller using segue.destination.
         // Pass the selected object to the new view controller.
         
+        //TODO: Get the values from all the fields.
+        //Date, Type, Systolic & Diastolic.
+        
         //TODO: Send data back to BPViewController
-        
-        
     }
     
     func getIndexOfValue(valueArr: [Int], searchValue: Int) -> Int {

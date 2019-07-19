@@ -45,11 +45,21 @@ This viewcontroller is for user's edit existing Upcoming health appointments. th
 The save button action will trigger the unwind segue back to Appointments Viewcontroller and returned the Appointment object. The return object will have a non zero id to inform the source view controller to update the record Appointment.  
 
 ### Weight Records
+This function enables users to perform list all weights and create new weight record.
 
 #### Weights
-TBC
+This View Controller list the date of the weight was taken and the weight recorded. The data is retrieve by making REST API call. The server returns a response containing an array of weight records in the JSON string format. HealthMon reads the JSON and turns it into an array of Weight object. The attributes of the weight object, date and weight record is then loaded onto the tableview. 
+
+  
 
 #### Add Weights
 TBC
 
 ### Blood Pressure Readings
+This function enables users to perform list all blood pressure readings and enter new readings.
+
+#### BP Readings
+TBC
+
+#### Add BP Reading
+TBC
