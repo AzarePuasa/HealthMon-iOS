@@ -9,20 +9,29 @@
 import Foundation
 
 class BPReading {
-    
-    enum BPTYPE {
-        case MORNING
-        case AFTERNOON
-        case EVENING
-    }
-    
-    var type: BPTYPE
+
+    var type: AddBPViewController.BPTYPE?
     var systolic: String
     var diastolic: String
+    var dailyReadingId: Int
     
-    init(type: BPTYPE ) {
+    init(type: AddBPViewController.BPTYPE ) {
         self.type = type
         self.systolic = ""
         self.diastolic = ""
+        self.dailyReadingId = -1
     }
+    
+    func setSystolic(systolic: String) {
+        self.systolic = systolic
+    }
+    
+    func setDiastolic(diastolic: String) {
+        self.diastolic = diastolic
+    }
+    
+    func describe() -> String {
+        return "\nType: \(type)\nSystolic: \(systolic)\nDiastolic: \(diastolic)\nDailyReadingId: \(dailyReadingId)"
+    }
+    
 }

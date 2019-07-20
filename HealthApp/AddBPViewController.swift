@@ -167,7 +167,8 @@ class AddBPViewController: UIViewController, UIPickerViewDataSource, UIPickerVie
     }
     
     @IBAction func actSave(_ sender: Any) {
-        //TODO: Perform unwind seque to BPViewController.
+        //Perform unwind seque to BPViewController.
+        performSegue(withIdentifier: "exittoBP", sender: self)
     }
     
     
@@ -213,9 +214,24 @@ class AddBPViewController: UIViewController, UIPickerViewDataSource, UIPickerVie
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destination.
         // Pass the selected object to the new view controller.
+        let identifier = segue.identifier
         
-        //TODO: Get the values from all the fields.
-        //Date, Type, Systolic & Diastolic.
+        if (identifier == "exittoBP") {
+            let vc = segue.destination as! BPViewController
+            
+            //TODO: Get the values from all the fields.
+            //Date, Type, Systolic & Diastolic.
+            
+            let systolic = outPickerViewSystolic.selectedRow(inComponent: 0)
+            let diastolic = outPickerViewDiastolic.selectedRow(inComponent: 0)
+            
+            let bpReadingPeriod = BPReading(type: bpType!)
+            bpReadingPeriod.systolic = "\(systolic)"
+            bpReadingPeriod.diastolic = "\(diastolic)"
+            
+            print(bpReadingPeriod.describe())
+            vc.bpReadingPeriod = bpReadingPeriod
+        }
         
         //TODO: Send data back to BPViewController
     }

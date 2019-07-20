@@ -857,9 +857,11 @@
                         <outlet property="outPickerViewDiastolic" destination="1f8-rI-uhr" id="w3D-TM-uWr"/>
                         <outlet property="outPickerViewSystolic" destination="wy0-ZD-Y1M" id="Xc1-ou-dOz"/>
                         <outlet property="outTextType" destination="JYc-e3-2BO" id="DqI-tp-iQK"/>
+                        <segue destination="JrW-RI-5Uh" kind="unwind" identifier="exittoBP" unwindAction="unwindBPSegue:" id="yas-fQ-OGW"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dEF-LX-hgL" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="JrW-RI-5Uh" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="1769" y="-1573"/>
         </scene>

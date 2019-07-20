@@ -20,6 +20,8 @@ class BPViewController: UIViewController, UITableViewDelegate, UITableViewDataSo
     
     var DailyBPReadings: [BPDailyReading] = []
     
+    var bpReadingPeriod: BPReading?
+    
     let GET_ALL_BPREADING_URL = "http://localhost:9010/api/bpreadings"
     
     override func viewDidLoad() {
@@ -102,6 +104,10 @@ class BPViewController: UIViewController, UITableViewDelegate, UITableViewDataSo
     
         //TODO: Handle return of new BP Reading.
         // Call Update BP Reading REST API endpoint.
+        if let bpReading = bpReadingPeriod {
+            print(bpReading.describe())
+        }
+        
     }
     
 
