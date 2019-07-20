@@ -20,7 +20,7 @@ class BPViewController: UIViewController, UITableViewDelegate, UITableViewDataSo
     
     var DailyBPReadings: [BPDailyReading] = []
     
-    var bpReadingPeriod: BPReading?
+    var bpReading: BPReading?
     
     let GET_ALL_BPREADING_URL = "http://localhost:9010/api/bpreadings"
     
@@ -102,12 +102,52 @@ class BPViewController: UIViewController, UITableViewDelegate, UITableViewDataSo
     @IBAction func unwindBPSegue(_ sender: UIStoryboardSegue) {
         print("unwind Segue")
     
-        //TODO: Handle return of new BP Reading.
+        // TODO: Handle return of new BP Reading.
         // Call Update BP Reading REST API endpoint.
-        if let bpReading = bpReadingPeriod {
+        if let bpReading = bpReading {
             print(bpReading.describe())
+            
+            updateDailyBP()
         }
         
+    }
+    
+    func updateDailyBP() {
+        //TODO: save the new BPReading by making the API call.
+        //The call depends on the BPReading Type field.
+        
+        //create Data object. This is a string
+        
+        if let bpReading = bpReading {
+            let reading = "\(bpReading.systolic)/\(bpReading.diastolic)"
+            
+            //let obj = reading as AnyObject
+            
+            //let apptData = try! JSONSerialization.data(withJSONObject: reading, options: [])
+            
+            if (bpReading.type == AddBPViewController.BPTYPE.MORNING) {
+                HTTPHandler.putAPIString(urlString: "http://localhost:9010/api/bpmorning/\(bpReading.dailyReadingId)", data: reading, completionHandler: putAPIUpdateBP)
+            }
+            
+            if (bpReading.type == AddBPViewController.BPTYPE.AFTERNOON) {
+                HTTPHandler.putAPIString(urlString: "http://localhost:9010/api/bpafternoon/\(bpReading.dailyReadingId)", data: reading, completionHandler: putAPIUpdateBP)
+            }
+            
+            if (bpReading.type == AddBPViewController.BPTYPE.EVENING) {
+                HTTPHandler.putAPIString(urlString: "http://localhost:9010/api/bpevening/\(bpReading.dailyReadingId)", data: reading, completionHandler: putAPIUpdateBP)
+            }
+        }
+    }
+    
+    func putAPIUpdateBP(data: Data?) -> Void {
+        if let data = data, let dataString = String(data: data, encoding: .utf8) {
+            DispatchQueue.main.async {
+                print("Updating BPDailyReading: \(dataString)")
+                //update the appointment.
+                self.fetchAllBPReadings()
+                self.outTableView.reloadData()
+            }
+        }
     }
     
 

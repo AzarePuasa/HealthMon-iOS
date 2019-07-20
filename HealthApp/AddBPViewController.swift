@@ -222,15 +222,22 @@ class AddBPViewController: UIViewController, UIPickerViewDataSource, UIPickerVie
             //TODO: Get the values from all the fields.
             //Date, Type, Systolic & Diastolic.
             
-            let systolic = outPickerViewSystolic.selectedRow(inComponent: 0)
-            let diastolic = outPickerViewDiastolic.selectedRow(inComponent: 0)
+            let selectedSystolic = outPickerViewSystolic.selectedRow(inComponent: 0)
+            let selectedDiastolic = outPickerViewDiastolic.selectedRow(inComponent: 0)
+            
+            let systolic = systolicRange[selectedSystolic]
+            let diastolic = diastolicRange[selectedDiastolic]
             
             let bpReadingPeriod = BPReading(type: bpType!)
             bpReadingPeriod.systolic = "\(systolic)"
             bpReadingPeriod.diastolic = "\(diastolic)"
             
+            if let bpReading = bpReading {
+                bpReadingPeriod.dailyReadingId = bpReading.id
+            }
+            
             print(bpReadingPeriod.describe())
-            vc.bpReadingPeriod = bpReadingPeriod
+            vc.bpReading = bpReadingPeriod
         }
         
         //TODO: Send data back to BPViewController
@@ -249,6 +256,5 @@ class AddBPViewController: UIViewController, UIPickerViewDataSource, UIPickerVie
         
         return -1
     }
-    
 
 }

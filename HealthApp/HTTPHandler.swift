@@ -82,13 +82,43 @@ class HTTPHandler {
             if let data = data {
                 let httpResponse = response as! HTTPURLResponse
                 let statusCode = httpResponse.statusCode
-                print("post request completed with code: \(statusCode)")
+                print("PUT request completed with code: \(statusCode)")
                 if (statusCode == 200) {
                     print("return to completion handler with the data")
                     completionHandler(data as Data)
                 }
             } else if let error = error {
-                print("***There was an error making the POST HTTP request***")
+                print("***There was an error making the PUT HTTP request***")
+                print(error.localizedDescription)
+                completionHandler(nil)
+            }
+        }
+        
+        task.resume()
+    }
+    
+    static func putAPIString(urlString: String, data: String, completionHandler: @escaping (Data?) -> (Void)) {
+ 
+        let url = URL(string: urlString)
+        
+        var request = URLRequest(url: url!)
+        request.httpMethod = "PUT"
+        
+        request.httpBody = data.data(using: .utf8)
+    
+        let session = URLSession.shared
+        
+        let task = session.dataTask(with: request) { data, response, error in
+            if let data = data {
+                let httpResponse = response as! HTTPURLResponse
+                let statusCode = httpResponse.statusCode
+                print("PUT request completed with code: \(statusCode)")
+                if (statusCode == 200) {
+                    print("return to completion handler with the data")
+                    completionHandler(data as Data)
+                }
+            } else if let error = error {
+                print("***There was an error making the PUT HTTP request***")
                 print(error.localizedDescription)
                 completionHandler(nil)
             }
