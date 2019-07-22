@@ -18,6 +18,7 @@
 		EBA01EC122DADDC600D3DDA8 /* AddBPViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBA01EC022DADDC600D3DDA8 /* AddBPViewController.swift */; };
 		EBA0886122D6BC97004AB184 /* WeightViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBA0886022D6BC97004AB184 /* WeightViewController.swift */; };
 		EBA7247B22DE335F00E9A246 /* BPDataProcessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBA7247A22DE335F00E9A246 /* BPDataProcessor.swift */; };
+		EBAA2EC122E57C5700F2C456 /* ApptNotifyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBAA2EC022E57C5700F2C456 /* ApptNotifyViewController.swift */; };
 		EBAE981C225E23E400F2C518 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBAE981B225E23E400F2C518 /* AppDelegate.swift */; };
 		EBAE9821225E23E400F2C518 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EBAE981F225E23E400F2C518 /* Main.storyboard */; };
 		EBAE9823225E23E600F2C518 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EBAE9822225E23E600F2C518 /* Assets.xcassets */; };
@@ -46,6 +47,7 @@
 		EBA01EC022DADDC600D3DDA8 /* AddBPViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddBPViewController.swift; sourceTree = "<group>"; };
 		EBA0886022D6BC97004AB184 /* WeightViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeightViewController.swift; sourceTree = "<group>"; };
 		EBA7247A22DE335F00E9A246 /* BPDataProcessor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BPDataProcessor.swift; sourceTree = "<group>"; };
+		EBAA2EC022E57C5700F2C456 /* ApptNotifyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApptNotifyViewController.swift; sourceTree = "<group>"; };
 		EBAE9818225E23E400F2C518 /* HealthApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HealthApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EBAE981B225E23E400F2C518 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EBAE9820225E23E400F2C518 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -120,6 +122,7 @@
 				EBA01EBE22DAD71E00D3DDA8 /* BPTableViewCell.swift */,
 				EBA01EC022DADDC600D3DDA8 /* AddBPViewController.swift */,
 				EBA7247A22DE335F00E9A246 /* BPDataProcessor.swift */,
+				EBAA2EC022E57C5700F2C456 /* ApptNotifyViewController.swift */,
 			);
 			path = HealthApp;
 			sourceTree = "<group>";
@@ -203,6 +206,7 @@
 				EBDD681A22CECE3000D120C8 /* JSONParser.swift in Sources */,
 				EBB2314422D7977D00560335 /* WeightDataProcessor.swift in Sources */,
 				EBA01EBD22DACDDC00D3DDA8 /* BPDailyReading.swift in Sources */,
+				EBAA2EC122E57C5700F2C456 /* ApptNotifyViewController.swift in Sources */,
 				EBE8F627227D4D7A00E7912D /* Appt.swift in Sources */,
 				EBC62615229D04E5009CD035 /* ApptTableViewCell.swift in Sources */,
 				EBC6260D229CFE4C009CD035 /* HealthMonCommon.swift in Sources */,

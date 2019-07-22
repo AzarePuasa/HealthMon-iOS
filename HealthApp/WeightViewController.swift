@@ -97,6 +97,13 @@ class WeightViewController: UIViewController, UITableViewDelegate, UITableViewDa
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destination.
         // Pass the selected object to the new view controller.
+        let identifier = segue.identifier
+        
+        if (identifier == "addweight") {
+            let vc = segue.destination as! AddWeightViewController
+            
+            vc.hidesBottomBarWhenPushed = true
+        }
     }
     
     @IBAction func unwindWeightSegue(_ sender: UIStoryboardSegue) {

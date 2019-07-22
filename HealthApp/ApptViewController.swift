@@ -173,7 +173,13 @@ class ApptViewController: UIViewController, UITableViewDelegate, UITableViewData
                     
                     vc.isUpcoming = false
                 }
+                
+                vc.hidesBottomBarWhenPushed = true
             }
+        } else if (identifier == "add" ) {
+            let vc = segue.destination as! AddApptViewController
+            
+            vc.hidesBottomBarWhenPushed = true
         }
     }
     

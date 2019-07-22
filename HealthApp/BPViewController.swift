@@ -97,6 +97,14 @@ class BPViewController: UIViewController, UITableViewDelegate, UITableViewDataSo
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destination.
         // Pass the selected object to the new view controller.
+        
+        let identifier = segue.identifier
+        
+        if (identifier == "addBP") {
+            let vc = segue.destination as! AddBPViewController
+            
+            vc.hidesBottomBarWhenPushed = true
+        }
     }
     
     @IBAction func unwindBPSegue(_ sender: UIStoryboardSegue) {
