@@ -31,6 +31,8 @@ class UpcomingApptViewController: UIViewController {
     var isUpcoming: Bool!
     
     var appointment: Appointment!
+    
+    var isNotificationOn: Bool!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -48,6 +50,10 @@ class UpcomingApptViewController: UIViewController {
         if (!isUpcoming) {
             outBarButtonEdit.isEnabled = false
         }
+        
+        //TODO: Check for notification with id healthmon.appt.<id>
+        
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -91,5 +97,27 @@ class UpcomingApptViewController: UIViewController {
             let vc = segue.destination as! EditApptViewController
             vc.appointment = self.appointment
         }
+        
+        if (identifier == "setnotification") {
+            //TODO: send id of appointment.
+            let vc = segue.destination as! ApptNotifyViewController
+            
+            vc.assignmentId = appointment.id
+            
+            //If exist, send true
+            vc.notificationExist = true
+        }
+    }
+    
+    @IBAction func unwindUpComingApptSegue(_ sender: UIStoryboardSegue) {
+        print("unwind Segue in UpcomingAppt ")
+        
+        //TODO: To create/delete notification here.
+        if (isNotificationOn) {
+            print("Switch on Appt Notification is set to ON")
+        } else {
+            print("Switch on Appt Notification is set to OFF")
+        }
+        
     }
 }

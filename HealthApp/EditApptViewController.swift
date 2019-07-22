@@ -30,6 +30,8 @@ class EditApptViewController: UIViewController {
     
     var appointment: Appointment!
     
+    var createNotification: Bool = false
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 

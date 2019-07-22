@@ -390,7 +390,7 @@
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="fTt-Hf-7mD"/>
                                     <barButtonItem title="Notification" image="icons8-reminder-24" id="uX3-Fg-Yvu">
                                         <connections>
-                                            <segue destination="wTt-1d-SGm" kind="popoverPresentation" popoverAnchorBarButtonItem="uX3-Fg-Yvu" id="aLd-CS-WyL">
+                                            <segue destination="wTt-1d-SGm" kind="popoverPresentation" identifier="setnotification" popoverAnchorBarButtonItem="uX3-Fg-Yvu" id="aLd-CS-WyL">
                                                 <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
                                             </segue>
                                         </connections>
@@ -1167,16 +1167,47 @@
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <items>
                                     <navigationItem title="Set Notification" id="uxc-3D-XoP">
-                                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="QHq-QW-DYk"/>
+                                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="QHq-QW-DYk">
+                                            <connections>
+                                                <action selector="actDone:" destination="wTt-1d-SGm" id="jAu-cC-hZv"/>
+                                            </connections>
+                                        </barButtonItem>
                                     </navigationItem>
                                 </items>
                             </navigationBar>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="7Ft-1J-f93">
+                                <rect key="frame" x="20" y="154" width="335" height="31"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enable Notification" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nn2-2K-hRm">
+                                        <rect key="frame" x="0.0" y="0.0" width="237.5" height="31"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ohb-f4-FDS">
+                                        <rect key="frame" x="247.5" y="0.0" width="89.5" height="31"/>
+                                        <connections>
+                                            <action selector="actSwitchChange:" destination="wTt-1d-SGm" eventType="valueChanged" id="wBR-R0-w0y"/>
+                                        </connections>
+                                    </switch>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="7Ft-1J-f93" firstAttribute="top" secondItem="leU-CX-UoT" secondAttribute="top" constant="134" id="TTf-KG-w34"/>
+                            <constraint firstItem="7Ft-1J-f93" firstAttribute="leading" secondItem="leU-CX-UoT" secondAttribute="leading" constant="20" id="fts-OY-HBL"/>
+                            <constraint firstItem="leU-CX-UoT" firstAttribute="trailing" secondItem="7Ft-1J-f93" secondAttribute="trailing" constant="20" id="uDj-cU-JKu"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="leU-CX-UoT"/>
                     </view>
+                    <connections>
+                        <outlet property="outSwitch" destination="ohb-f4-FDS" id="glM-Wf-Clo"/>
+                        <segue destination="lmm-H3-RIN" kind="unwind" identifier="exitNotAppt" unwindAction="unwindUpComingApptSegue:" id="PVX-ao-JXF"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7QM-SN-wk6" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="lmm-H3-RIN" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="2574" y="1226"/>
         </scene>
