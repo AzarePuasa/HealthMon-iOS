@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import UserNotifications
 
 class UpcomingApptViewController: UIViewController {
     
@@ -26,6 +27,8 @@ class UpcomingApptViewController: UIViewController {
     
     @IBOutlet weak var outBarButtonEdit: UIBarButtonItem!
     
+    @IBOutlet weak var outNotificationBarButton: UIBarButtonItem!
+    
     var id: Int!
     
     var isUpcoming: Bool!
@@ -33,6 +36,12 @@ class UpcomingApptViewController: UIViewController {
     var appointment: Appointment!
     
     var isNotificationOn: Bool!
+    
+    var isGrantedNotificationAccess = false
+    
+    var notificationExist: Bool = false
+    
+    var apptNotificationId: String?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -47,19 +56,39 @@ class UpcomingApptViewController: UIViewController {
         outLabelSubHeader.text = isUpcoming ?
             "Upcoming Appointment": "Completed Appointment"
         
-        if (!isUpcoming) {
+        fetchAppointment(url: "http://localhost:9010/api/appointment/\(id!)")
+        
+        outNotificationBarButton.isEnabled = false
+        
+        if (isUpcoming) {
+            // Check access is granted for notification.
+            let center = UNUserNotificationCenter.current()
+            center.getNotificationSettings { (settings) in
+                // Do not schedule notifications if not authorized
+                if (settings.authorizationStatus == .authorized) {
+                    self.isGrantedNotificationAccess = true
+                    self.outNotificationBarButton.isEnabled = true
+                }
+            }
+            
+            //TODO: Check for notification with id healthmon.appt.<id>
+            center.getPendingNotificationRequests(completionHandler: {requests -> () in
+                print("\(requests.count) requests -------")
+                for request in requests{
+                    if (request.identifier == self.apptNotificationId) {
+                        self.notificationExist = true
+                        print("Appointment Notification found.")
+                    }
+                }
+            })
+        } else {
             outBarButtonEdit.isEnabled = false
+            outNotificationBarButton.isEnabled = false
         }
-        
-        //TODO: Check for notification with id healthmon.appt.<id>
-        
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
-        
-        fetchAppointment(url: "http://localhost:9010/api/appointment/\(id!)")
     }
     
     func fetchAppointment(url: String) {
@@ -77,6 +106,8 @@ class UpcomingApptViewController: UIViewController {
                     self.outLabelTime.text = self.appointment.time
                     self.outLabelLocation.text = self.appointment.location
                     self.outLabelPurpose.text = self.appointment.purpose
+                    
+                     self.apptNotificationId = "healthmon.appt.\(self.appointment.id)"
                 }
             }
         }
@@ -104,20 +135,51 @@ class UpcomingApptViewController: UIViewController {
             
             vc.assignmentId = appointment.id
             
+            print("Appointment ID: \(appointment.id)")
+            
             //If exist, send true
-            vc.notificationExist = true
+            vc.notificationExist = notificationExist
         }
     }
     
     @IBAction func unwindUpComingApptSegue(_ sender: UIStoryboardSegue) {
         print("unwind Segue in UpcomingAppt ")
         
-        //TODO: To create/delete notification here.
         if (isNotificationOn) {
-            print("Switch on Appt Notification is set to ON")
+            print("Switch on Appt Notification is set to ON. Create/Replace Notification")
+            //TODO: Create notification for this Appointment
+            //Date for trigger is Appointment Date - 1
+            
+            //Set the content of the notification
+            let content = UNMutableNotificationContent()
+            content.title = "Health Monitoring"
+            content.subtitle = "Appointment Reminder Test"
+            content.body = "Notification after 1 Minute"
+            
+            //Set the trigger of the notification -- here a timer.
+            let trigger = UNTimeIntervalNotificationTrigger(
+                timeInterval: 60.0,
+                repeats: false)
+            
+            //Set the request for the notification from the above
+            if let identifier = apptNotificationId {
+                let request = UNNotificationRequest(
+                    identifier: identifier,
+                    content: content,
+                    trigger: trigger
+                )
+                
+                //Add the notification to the currnet notification center
+                UNUserNotificationCenter.current().add(
+                    request, withCompletionHandler: nil)
+            }
         } else {
-            print("Switch on Appt Notification is set to OFF")
+            if (notificationExist) {
+                print("Switch on Appt Notification is set to OFF. Deleting pending Notification")
+                //TODO: Delete the notification.
+                if let identifier = apptNotificationId {        UNUserNotificationCenter.current().removePendingNotificationRequests(withIdentifiers: [identifier])
+                }
+            }
         }
-        
     }
 }

@@ -24,6 +24,7 @@
 		EBAE9823225E23E600F2C518 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EBAE9822225E23E600F2C518 /* Assets.xcassets */; };
 		EBAE9826225E23E600F2C518 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EBAE9824225E23E600F2C518 /* LaunchScreen.storyboard */; };
 		EBB2314422D7977D00560335 /* WeightDataProcessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBB2314322D7977D00560335 /* WeightDataProcessor.swift */; };
+		EBC0E37722E605B400BA4E6F /* UserNotifications.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EBC0E37622E605B400BA4E6F /* UserNotifications.framework */; };
 		EBC6260D229CFE4C009CD035 /* HealthMonCommon.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBC6260C229CFE4C009CD035 /* HealthMonCommon.swift */; };
 		EBC62615229D04E5009CD035 /* ApptTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBC62614229D04E5009CD035 /* ApptTableViewCell.swift */; };
 		EBCC34B822B4BA3D007A1A82 /* UpcomingApptViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBCC34B722B4BA3D007A1A82 /* UpcomingApptViewController.swift */; };
@@ -55,6 +56,7 @@
 		EBAE9825225E23E600F2C518 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		EBAE9827225E23E600F2C518 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EBB2314322D7977D00560335 /* WeightDataProcessor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeightDataProcessor.swift; sourceTree = "<group>"; };
+		EBC0E37622E605B400BA4E6F /* UserNotifications.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UserNotifications.framework; path = System/Library/Frameworks/UserNotifications.framework; sourceTree = SDKROOT; };
 		EBC6260C229CFE4C009CD035 /* HealthMonCommon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthMonCommon.swift; sourceTree = "<group>"; };
 		EBC62614229D04E5009CD035 /* ApptTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApptTableViewCell.swift; sourceTree = "<group>"; };
 		EBCC34B722B4BA3D007A1A82 /* UpcomingApptViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpcomingApptViewController.swift; sourceTree = "<group>"; };
@@ -71,6 +73,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EBC0E37722E605B400BA4E6F /* UserNotifications.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -82,6 +85,7 @@
 			children = (
 				EBAE981A225E23E400F2C518 /* HealthApp */,
 				EBAE9819225E23E400F2C518 /* Products */,
+				EBC0E37522E605B400BA4E6F /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -125,6 +129,14 @@
 				EBAA2EC022E57C5700F2C456 /* ApptNotifyViewController.swift */,
 			);
 			path = HealthApp;
+			sourceTree = "<group>";
+		};
+		EBC0E37522E605B400BA4E6F /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				EBC0E37622E605B400BA4E6F /* UserNotifications.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

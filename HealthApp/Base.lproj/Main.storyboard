@@ -430,6 +430,7 @@
                         <outlet property="outLabelPurpose" destination="mGi-Nv-U6R" id="gDm-eA-WTb"/>
                         <outlet property="outLabelSubHeader" destination="vKE-TO-FAO" id="XL0-gf-ywN"/>
                         <outlet property="outLabelTime" destination="Heh-lI-F1E" id="oD3-ba-aAJ"/>
+                        <outlet property="outNotificationBarButton" destination="uX3-Fg-Yvu" id="D2I-b2-43Y"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ke2-m2-nyI" userLabel="First Responder" sceneMemberID="firstResponder"/>
