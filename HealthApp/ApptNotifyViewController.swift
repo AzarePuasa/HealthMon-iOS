@@ -7,14 +7,18 @@
 //
 
 import UIKit
+import UserNotifications
 
 class ApptNotifyViewController: UIViewController {
     
     @IBOutlet weak var outSwitch: UISwitch!
     
+    @IBOutlet weak var outTextView: UITextView!
+    
     var assignmentId: Int?
     var notificationExist: Bool = false  //notification exist. Set from source controller.
     var isSwitchOn: Bool = false
+    var apptNotification: UNNotificationRequest?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,6 +35,12 @@ class ApptNotifyViewController: UIViewController {
         } else {
             outSwitch.isOn = false
         }
+    
+        if let appt_reminder = apptNotification {
+            outTextView.text = "Title\(appt_reminder.content.title)\n Sub-Title: \(appt_reminder.content.subtitle)"
+        } else {
+            outTextView.text = "No Notification Set"
+        }
     }
 
     
@@ -46,7 +56,9 @@ class ApptNotifyViewController: UIViewController {
             //Notification
             let vc = segue.destination as! UpcomingApptViewController
             
-            vc.isNotificationOn = isSwitchOn
+            print("isSwitchOn: \(isSwitchOn)")
+            
+            vc.userWantsNotification = isSwitchOn
         }
     }
     

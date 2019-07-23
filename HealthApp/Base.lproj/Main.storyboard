@@ -398,17 +398,37 @@
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="Inx-KG-XKj"/>
                                 </items>
                             </toolbar>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="BU4-Ds-lIl">
+                                <rect key="frame" x="50" y="409" width="275" height="20.5"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Reminder: " textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rID-nY-sRT">
+                                        <rect key="frame" x="0.0" y="0.0" width="137.5" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rqo-bh-gfD">
+                                        <rect key="frame" x="137.5" y="0.0" width="137.5" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="58X-n5-1MN" firstAttribute="trailing" secondItem="dpJ-0l-GKY" secondAttribute="trailing" constant="20" id="4UL-K0-W7x"/>
+                            <constraint firstItem="58X-n5-1MN" firstAttribute="trailing" secondItem="BU4-Ds-lIl" secondAttribute="trailing" constant="50" id="ALA-ve-lzm"/>
                             <constraint firstItem="58X-n5-1MN" firstAttribute="trailing" secondItem="w5A-9L-CQb" secondAttribute="trailing" constant="20" id="J1v-VI-ZVB"/>
+                            <constraint firstItem="BU4-Ds-lIl" firstAttribute="leading" secondItem="58X-n5-1MN" secondAttribute="leading" constant="50" id="LLp-2v-1J6"/>
                             <constraint firstItem="58X-n5-1MN" firstAttribute="trailing" secondItem="Oxo-Ho-chF" secondAttribute="trailing" constant="20" id="OaN-sr-m6F"/>
                             <constraint firstItem="Oxo-Ho-chF" firstAttribute="leading" secondItem="9SN-M6-o1m" secondAttribute="leading" constant="20" id="Qzd-35-6Ua"/>
                             <constraint firstItem="w5A-9L-CQb" firstAttribute="top" secondItem="58X-n5-1MN" secondAttribute="top" id="SVy-tu-j6h"/>
                             <constraint firstItem="58X-n5-1MN" firstAttribute="bottom" secondItem="Oxo-Ho-chF" secondAttribute="bottom" id="bVe-8B-w3K"/>
                             <constraint firstItem="dpJ-0l-GKY" firstAttribute="top" secondItem="w5A-9L-CQb" secondAttribute="bottom" constant="40" id="evJ-B8-uLU"/>
                             <constraint firstItem="dpJ-0l-GKY" firstAttribute="leading" secondItem="58X-n5-1MN" secondAttribute="leading" constant="20" id="fUA-o6-ER7"/>
+                            <constraint firstItem="BU4-Ds-lIl" firstAttribute="top" secondItem="dpJ-0l-GKY" secondAttribute="bottom" constant="50" id="gJ3-ZA-mR8"/>
                             <constraint firstItem="w5A-9L-CQb" firstAttribute="leading" secondItem="58X-n5-1MN" secondAttribute="leading" constant="20" id="lmX-zM-UFj"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="58X-n5-1MN"/>
@@ -428,9 +448,11 @@
                         <outlet property="outLabelHeader" destination="cXU-wN-Cwk" id="wWt-TB-uDg"/>
                         <outlet property="outLabelLocation" destination="bmu-Mu-mIp" id="HXG-iV-AAf"/>
                         <outlet property="outLabelPurpose" destination="mGi-Nv-U6R" id="gDm-eA-WTb"/>
+                        <outlet property="outLabelReminder" destination="rID-nY-sRT" id="OrJ-fV-fIA"/>
                         <outlet property="outLabelSubHeader" destination="vKE-TO-FAO" id="XL0-gf-ywN"/>
                         <outlet property="outLabelTime" destination="Heh-lI-F1E" id="oD3-ba-aAJ"/>
                         <outlet property="outNotificationBarButton" destination="uX3-Fg-Yvu" id="D2I-b2-43Y"/>
+                        <outlet property="outReminder" destination="rqo-bh-gfD" id="Pxg-ZK-yO2"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ke2-m2-nyI" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1193,6 +1215,13 @@
                                     </switch>
                                 </subviews>
                             </stackView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" text="Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu,..." selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qY7-wn-KVD">
+                                <rect key="frame" x="67" y="223" width="240" height="128"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -1204,6 +1233,7 @@
                     </view>
                     <connections>
                         <outlet property="outSwitch" destination="ohb-f4-FDS" id="glM-Wf-Clo"/>
+                        <outlet property="outTextView" destination="qY7-wn-KVD" id="Owz-cU-9RX"/>
                         <segue destination="lmm-H3-RIN" kind="unwind" identifier="exitNotAppt" unwindAction="unwindUpComingApptSegue:" id="PVX-ao-JXF"/>
                     </connections>
                 </viewController>
