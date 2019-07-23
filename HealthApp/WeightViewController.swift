@@ -109,7 +109,13 @@ class WeightViewController: UIViewController, UITableViewDelegate, UITableViewDa
     @IBAction func unwindWeightSegue(_ sender: UIStoryboardSegue) {
         print("unwind Segue")
         
-        createWeight()
+        let identifier = sender.identifier
+        
+        if (identifier == "exitweight") {
+            createWeight()
+        } else if (identifier == "exitNotWeight") {
+            print("Weight Notification")
+        }
     }
     
     func createWeight() {

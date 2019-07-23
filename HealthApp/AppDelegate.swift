@@ -14,10 +14,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
-
+    let notificationDelegate = MyNotificationDelegate()
+    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         let center = UNUserNotificationCenter.current()
+        center.delegate = notificationDelegate
         // Request permission to display alerts and play sounds.
         center.requestAuthorization(options: [.alert, .badge, .sound]) { (granted, error) in
             // Enable or disable features based on authorization.
@@ -48,5 +50,22 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
 
+}
+
+class MyNotificationDelegate: NSObject, UNUserNotificationCenterDelegate {
+    func userNotificationCenter(_ center: UNUserNotificationCenter,
+                                willPresent notification: UNNotification,
+                                withCompletionHandler completionHandler:
+        @escaping (UNNotificationPresentationOptions) -> Void) {
+        // Update the app interface directly
+        // call the completionHandler with the specified options for delivering the notification
+        completionHandler([.alert,.badge,.sound])
+    }
+    func userNotificationCenter(_ center: UNUserNotificationCenter,
+                                didReceive response: UNNotificationResponse,
+                                withCompletionHandler completionHandler: @escaping () -> Void) {
+        // call the completionHandler
+        completionHandler()
+    }
 }
 

@@ -58,7 +58,7 @@ class ApptNotifyViewController: UIViewController {
             
             print("isSwitchOn: \(isSwitchOn)")
             
-            vc.userWantsNotification = isSwitchOn
+            vc.userWantsNotification = outSwitch.isOn
         }
     }
     

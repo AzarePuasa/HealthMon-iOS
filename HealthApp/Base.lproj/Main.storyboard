@@ -50,7 +50,7 @@
                                 </constraints>
                             </stackView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="0ZN-TJ-3gL">
-                                <rect key="frame" x="20" y="203" width="335" height="415"/>
+                                <rect key="frame" x="20" y="203" width="335" height="371"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="weightcell" id="rDS-H9-QJP" customClass="WeightTableViewCell" customModule="HealthApp" customModuleProvider="target">
@@ -94,15 +94,32 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QVL-KH-RPH">
+                                <rect key="frame" x="0.0" y="574" width="375" height="44"/>
+                                <items>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="3mZ-gu-cQj"/>
+                                    <barButtonItem title="Item" image="icons8-reminder-24" id="PMj-MX-vd7">
+                                        <connections>
+                                            <segue destination="z7V-HQ-UxM" kind="popoverPresentation" popoverAnchorBarButtonItem="PMj-MX-vd7" id="omq-Er-TYg">
+                                                <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
+                                            </segue>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="X6e-t7-tdW"/>
+                                </items>
+                            </toolbar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="0ZN-TJ-3gL" firstAttribute="top" secondItem="lLa-TV-n4W" secondAttribute="bottom" constant="30" id="FqO-Vu-fcR"/>
-                            <constraint firstItem="l4s-1e-m9L" firstAttribute="bottom" secondItem="0ZN-TJ-3gL" secondAttribute="bottom" id="Gpp-ci-kIY"/>
+                            <constraint firstItem="l4s-1e-m9L" firstAttribute="bottom" secondItem="QVL-KH-RPH" secondAttribute="bottom" id="H8O-Dl-KcN"/>
                             <constraint firstItem="lLa-TV-n4W" firstAttribute="top" secondItem="l4s-1e-m9L" secondAttribute="top" id="Q68-OB-OYD"/>
+                            <constraint firstItem="0ZN-TJ-3gL" firstAttribute="top" secondItem="lLa-TV-n4W" secondAttribute="bottom" constant="30" id="SMG-fD-5M6"/>
                             <constraint firstItem="0ZN-TJ-3gL" firstAttribute="leading" secondItem="l4s-1e-m9L" secondAttribute="leading" constant="20" id="WOA-26-j5I"/>
                             <constraint firstItem="l4s-1e-m9L" firstAttribute="trailing" secondItem="lLa-TV-n4W" secondAttribute="trailing" constant="20" id="Y6E-Ar-5fo"/>
+                            <constraint firstItem="QVL-KH-RPH" firstAttribute="leading" secondItem="l4s-1e-m9L" secondAttribute="leading" id="Zkm-oq-zmu"/>
                             <constraint firstItem="l4s-1e-m9L" firstAttribute="trailing" secondItem="0ZN-TJ-3gL" secondAttribute="trailing" constant="20" id="cJf-1a-qQ9"/>
+                            <constraint firstItem="QVL-KH-RPH" firstAttribute="top" secondItem="0ZN-TJ-3gL" secondAttribute="bottom" id="cYN-PD-Xjg"/>
+                            <constraint firstItem="l4s-1e-m9L" firstAttribute="trailing" secondItem="QVL-KH-RPH" secondAttribute="trailing" id="ldN-GY-sCE"/>
                             <constraint firstItem="lLa-TV-n4W" firstAttribute="leading" secondItem="l4s-1e-m9L" secondAttribute="leading" constant="20" id="rEm-JF-Ots"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="l4s-1e-m9L"/>
@@ -123,7 +140,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Hwk-bA-cG1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1000.8" y="-703.89805097451278"/>
+            <point key="canvasLocation" x="1001" y="-1260"/>
         </scene>
         <!--Health Monitoring-->
         <scene sceneID="tne-QT-ifu">
@@ -258,7 +275,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1001" y="27"/>
+            <point key="canvasLocation" x="1001" y="52"/>
         </scene>
         <!--Health Monitoring-->
         <scene sceneID="q8u-Yn-5ej">
@@ -457,7 +474,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ke2-m2-nyI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2574" y="462"/>
+            <point key="canvasLocation" x="2172" y="635"/>
         </scene>
         <!--Health Monitoring-->
         <scene sceneID="cav-Z1-oMd">
@@ -616,7 +633,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qAg-3s-g5B" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="Jej-q2-Osz" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="3745" y="462"/>
+            <point key="canvasLocation" x="3375" y="52"/>
         </scene>
         <!--Health Monitoring-->
         <scene sceneID="I4Z-5Y-A7v">
@@ -760,7 +777,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nWN-oX-02k" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1000.8" y="-1566.5667166416792"/>
+            <point key="canvasLocation" x="1074" y="1046"/>
         </scene>
         <!--Health Monitoring-->
         <scene sceneID="Kd6-X5-Gsq">
@@ -903,7 +920,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dEF-LX-hgL" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="JrW-RI-5Uh" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="1769" y="-1573"/>
+            <point key="canvasLocation" x="2220" y="1453"/>
         </scene>
         <!--Health Monitoring-->
         <scene sceneID="kEZ-cV-1Dz">
@@ -1016,7 +1033,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ATm-vH-xbv" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="CH7-FG-AKv" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="3391.1999999999998" y="-1076.311844077961"/>
+            <point key="canvasLocation" x="2172" y="-1830"/>
         </scene>
         <!--Health Monitoring-->
         <scene sceneID="7Tg-RC-b4A">
@@ -1175,7 +1192,66 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6S8-ZB-BRt" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="JLp-R1-kyl" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="2503" y="-302"/>
+            <point key="canvasLocation" x="2172" y="-304"/>
+        </scene>
+        <!--Weight Notify View Controller-->
+        <scene sceneID="g7d-gX-Gnu">
+            <objects>
+                <viewController id="z7V-HQ-UxM" customClass="WeightNotifyViewController" customModule="HealthApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8tR-VM-3af">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KHP-jP-Hc1">
+                                <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                                <items>
+                                    <navigationItem title="Set Notification" id="GPm-Qu-d6L">
+                                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="a0a-5m-35R">
+                                            <connections>
+                                                <action selector="actBtnDone:" destination="z7V-HQ-UxM" id="S2O-Wx-oPc"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="sV9-zS-2aq">
+                                <rect key="frame" x="20" y="164" width="335" height="31"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enable Notification" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c8c-8e-IZ4">
+                                        <rect key="frame" x="0.0" y="0.0" width="237.5" height="31"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="EJb-YI-uYD">
+                                        <rect key="frame" x="247.5" y="0.0" width="89.5" height="31"/>
+                                        <connections>
+                                            <action selector="actSwitchChange:" destination="wTt-1d-SGm" eventType="valueChanged" id="k9w-1X-JWg"/>
+                                        </connections>
+                                    </switch>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="rDW-Dj-wM8" firstAttribute="trailing" secondItem="sV9-zS-2aq" secondAttribute="trailing" constant="20" id="5ZI-BP-FN6"/>
+                            <constraint firstItem="sV9-zS-2aq" firstAttribute="leading" secondItem="rDW-Dj-wM8" secondAttribute="leading" constant="20" id="AeL-6I-0Gk"/>
+                            <constraint firstItem="sV9-zS-2aq" firstAttribute="centerX" secondItem="8tR-VM-3af" secondAttribute="centerX" id="CiT-Et-03G"/>
+                            <constraint firstItem="sV9-zS-2aq" firstAttribute="top" secondItem="KHP-jP-Hc1" secondAttribute="bottom" constant="100" id="WTc-1B-x7p"/>
+                            <constraint firstItem="KHP-jP-Hc1" firstAttribute="top" secondItem="rDW-Dj-wM8" secondAttribute="top" id="b5t-IY-Hyf"/>
+                            <constraint firstItem="rDW-Dj-wM8" firstAttribute="trailing" secondItem="KHP-jP-Hc1" secondAttribute="trailing" id="gZm-HG-1aF"/>
+                            <constraint firstItem="KHP-jP-Hc1" firstAttribute="leading" secondItem="rDW-Dj-wM8" secondAttribute="leading" id="uDr-eR-xEV"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="rDW-Dj-wM8"/>
+                    </view>
+                    <connections>
+                        <segue destination="RfV-FT-6BX" kind="unwind" identifier="exitNotWeight" unwindAction="unwindWeightSegue:" id="DiZ-0V-AUO"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Nvj-Je-eBo" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="RfV-FT-6BX" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="2172" y="-1057"/>
         </scene>
         <!--Appt Notify View Controller-->
         <scene sceneID="w85-oM-1ZO">
@@ -1185,9 +1261,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qTk-Am-aPe">
-                                <rect key="frame" x="0.0" y="20" width="375" height="44"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qTk-Am-aPe">
+                                <rect key="frame" x="20" y="20" width="335" height="44"/>
                                 <items>
                                     <navigationItem title="Set Notification" id="uxc-3D-XoP">
                                         <barButtonItem key="rightBarButtonItem" systemItem="done" id="QHq-QW-DYk">
@@ -1199,7 +1274,7 @@
                                 </items>
                             </navigationBar>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="7Ft-1J-f93">
-                                <rect key="frame" x="20" y="154" width="335" height="31"/>
+                                <rect key="frame" x="20" y="164" width="335" height="31"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enable Notification" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nn2-2K-hRm">
                                         <rect key="frame" x="0.0" y="0.0" width="237.5" height="31"/>
@@ -1225,7 +1300,10 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="7Ft-1J-f93" firstAttribute="top" secondItem="leU-CX-UoT" secondAttribute="top" constant="134" id="TTf-KG-w34"/>
+                            <constraint firstItem="qTk-Am-aPe" firstAttribute="leading" secondItem="leU-CX-UoT" secondAttribute="leading" constant="20" id="9wZ-QP-kXE"/>
+                            <constraint firstItem="leU-CX-UoT" firstAttribute="trailing" secondItem="qTk-Am-aPe" secondAttribute="trailing" constant="20" id="LoX-XX-c30"/>
+                            <constraint firstItem="qTk-Am-aPe" firstAttribute="top" secondItem="leU-CX-UoT" secondAttribute="top" id="UZa-bW-cbs"/>
+                            <constraint firstItem="7Ft-1J-f93" firstAttribute="top" secondItem="qTk-Am-aPe" secondAttribute="bottom" constant="100" id="a4p-ee-8fs"/>
                             <constraint firstItem="7Ft-1J-f93" firstAttribute="leading" secondItem="leU-CX-UoT" secondAttribute="leading" constant="20" id="fts-OY-HBL"/>
                             <constraint firstItem="leU-CX-UoT" firstAttribute="trailing" secondItem="7Ft-1J-f93" secondAttribute="trailing" constant="20" id="uDj-cU-JKu"/>
                         </constraints>
@@ -1240,7 +1318,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7QM-SN-wk6" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="lmm-H3-RIN" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="2574" y="1226"/>
+            <point key="canvasLocation" x="3374" y="913"/>
         </scene>
         <!--Appointment-->
         <scene sceneID="21U-te-7Ak">
@@ -1259,7 +1337,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1lb-zT-CmW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="62" y="27"/>
+            <point key="canvasLocation" x="-23" y="-370"/>
         </scene>
         <!--Weight-->
         <scene sceneID="ZHt-k2-ejI">
@@ -1278,7 +1356,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FdQ-Jf-E2t" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="62" y="-703"/>
+            <point key="canvasLocation" x="-22" y="-1259"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="zQe-az-K9k">
@@ -1298,7 +1376,7 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BN9-ja-qPC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1164" y="-303"/>
+            <point key="canvasLocation" x="-1430" y="264"/>
         </scene>
         <!--Blood Pressure-->
         <scene sceneID="mTC-Fm-pdi">
@@ -1317,7 +1395,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="j6r-Yc-U8F" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="62" y="-1566"/>
+            <point key="canvasLocation" x="-23" y="552"/>
         </scene>
     </scenes>
     <resources>
