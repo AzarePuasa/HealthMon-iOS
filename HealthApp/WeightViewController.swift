@@ -30,11 +30,13 @@ class WeightViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     var newWeightRecord: Weight!
     
-    var weightNotificationId: String?
+    var weightNotificationId: String = "healthmon_appt_weight"
     
     var weightNotification: UNNotificationRequest?
     
     var notificationExist: Bool = false
+    
+    var userWantsNotification: Bool!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -54,8 +56,6 @@ class WeightViewController: UIViewController, UITableViewDelegate, UITableViewDa
         //TODO: get weight records.
         fetchAllWeights()
         
-        weightNotificationId = "healthmon_appt_weight"
-        
         // Disable toolbar item if no Notification authorization.
         UNUserNotificationCenter.current().getNotificationSettings { (settings) in
             // Do not schedule notifications if not authorized
@@ -69,28 +69,14 @@ class WeightViewController: UIViewController, UITableViewDelegate, UITableViewDa
                 }
             }
         }
+        
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
          super.viewWillAppear(true)
         
-        if (isGrantedNotificationAccess) {
-            
-            //Check pending notifications.
-            UNUserNotificationCenter.current()  .getPendingNotificationRequests(completionHandler: {requests -> () in
-                
-                print("\(requests.count) requests -------")
-                
-                for request in requests{
-                    if (request.identifier == self.weightNotificationId) {
-                        print("Weight Notification found.")
-                        
-                        self.weightNotification = request
-                        self.notificationExist = true
-                    }
-                }
-            })
-        }
+        print("\(#function)")
     }
     
     func fetchAllWeights() {
@@ -138,14 +124,13 @@ class WeightViewController: UIViewController, UITableViewDelegate, UITableViewDa
         return cell
     }
     
-
-    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destination.
         // Pass the selected object to the new view controller.
+        print("\(#function)")
         let identifier = segue.identifier
         
         if (identifier == "addweight") {
@@ -167,7 +152,14 @@ class WeightViewController: UIViewController, UITableViewDelegate, UITableViewDa
         if (identifier == "exitweight") {
             createWeight()
         } else if (identifier == "exitNotWeight") {
-            print("Weight Notification")
+            if (userWantsNotification) {
+                let subTitle = "Weight Record Reminder"
+                let body = "Have you record your weight this month?"
+                
+                NotificationManager.create(for: subTitle, bodyText: body, identifierId: weightNotificationId)
+            } else {
+
+            }
         }
     }
     

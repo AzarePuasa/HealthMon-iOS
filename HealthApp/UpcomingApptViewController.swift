@@ -183,8 +183,6 @@ class UpcomingApptViewController: UIViewController {
             //TODO: send id of appointment.
             let vc = segue.destination as! ApptNotifyViewController
             
-            vc.assignmentId = appointment.id
-            
             print("Appointment ID: \(appointment.id)")
             
             //If exist, send true

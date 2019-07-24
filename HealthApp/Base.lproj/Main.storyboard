@@ -1223,26 +1223,40 @@
                                 <rect key="frame" x="20" y="164" width="335" height="31"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enable Notification" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c8c-8e-IZ4">
-                                        <rect key="frame" x="0.0" y="0.0" width="237.5" height="31"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="276" height="31"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="EJb-YI-uYD">
-                                        <rect key="frame" x="247.5" y="0.0" width="89.5" height="31"/>
+                                        <rect key="frame" x="286" y="0.0" width="51" height="31"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="49" id="LlM-DX-d5y"/>
+                                        </constraints>
                                         <connections>
                                             <action selector="actSwitchChange:" destination="wTt-1d-SGm" eventType="valueChanged" id="k9w-1X-JWg"/>
                                         </connections>
                                     </switch>
                                 </subviews>
                             </stackView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu," textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Zuy-SK-aGw">
+                                <rect key="frame" x="60" y="225" width="255" height="137"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="137" id="lPg-v2-XPh"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="rDW-Dj-wM8" firstAttribute="trailing" secondItem="sV9-zS-2aq" secondAttribute="trailing" constant="20" id="5ZI-BP-FN6"/>
                             <constraint firstItem="sV9-zS-2aq" firstAttribute="leading" secondItem="rDW-Dj-wM8" secondAttribute="leading" constant="20" id="AeL-6I-0Gk"/>
-                            <constraint firstItem="sV9-zS-2aq" firstAttribute="centerX" secondItem="8tR-VM-3af" secondAttribute="centerX" id="CiT-Et-03G"/>
+                            <constraint firstItem="rDW-Dj-wM8" firstAttribute="trailing" secondItem="Zuy-SK-aGw" secondAttribute="trailing" constant="60" id="D2b-Tt-QP8"/>
+                            <constraint firstItem="Zuy-SK-aGw" firstAttribute="leading" secondItem="rDW-Dj-wM8" secondAttribute="leading" constant="60" id="DPB-ee-NSd"/>
                             <constraint firstItem="sV9-zS-2aq" firstAttribute="top" secondItem="KHP-jP-Hc1" secondAttribute="bottom" constant="100" id="WTc-1B-x7p"/>
+                            <constraint firstItem="Zuy-SK-aGw" firstAttribute="top" secondItem="sV9-zS-2aq" secondAttribute="bottom" constant="30" id="X1P-vK-KtW"/>
                             <constraint firstItem="KHP-jP-Hc1" firstAttribute="top" secondItem="rDW-Dj-wM8" secondAttribute="top" id="b5t-IY-Hyf"/>
                             <constraint firstItem="rDW-Dj-wM8" firstAttribute="trailing" secondItem="KHP-jP-Hc1" secondAttribute="trailing" id="gZm-HG-1aF"/>
                             <constraint firstItem="KHP-jP-Hc1" firstAttribute="leading" secondItem="rDW-Dj-wM8" secondAttribute="leading" id="uDr-eR-xEV"/>
@@ -1250,6 +1264,8 @@
                         <viewLayoutGuide key="safeArea" id="rDW-Dj-wM8"/>
                     </view>
                     <connections>
+                        <outlet property="outSwitch" destination="EJb-YI-uYD" id="de4-uH-Add"/>
+                        <outlet property="outTextView" destination="Zuy-SK-aGw" id="gbq-iu-ip8"/>
                         <segue destination="RfV-FT-6BX" kind="unwind" identifier="exitNotWeight" unwindAction="unwindWeightSegue:" id="DiZ-0V-AUO"/>
                     </connections>
                 </viewController>
