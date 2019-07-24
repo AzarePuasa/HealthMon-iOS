@@ -203,30 +203,17 @@ class UpcomingApptViewController: UIViewController {
             //Date for trigger is Appointment Date - 1
             
             //Set the content of the notification
-            let content = UNMutableNotificationContent()
-            content.title = "Health Monitoring"
-            content.subtitle = "Reminder"
-            content.body = "You have an Appointment Tomorrow:\n Date: \(appointment.date)\nTime:\(appointment.time)\nLocation: \(appointment.location)"
-            
-            //Set the trigger of the notification -- here a timer.
-            let trigger = UNTimeIntervalNotificationTrigger(
-                timeInterval: 20,
-                repeats: false)
             
             //Set the request for the notification from the above
             if let identifier = apptNotificationId {
-                print("Creating Notification with identifier: \(identifier)")
-                let request = UNNotificationRequest(
-                    identifier: identifier,
-                    content: content,
-                    trigger: trigger
-                )
+                let subTitle = "Appointment Reminder"
                 
-                //Add the notification to the currnet notification center
-                UNUserNotificationCenter.current().add(
-                    request, withCompletionHandler: nil)
+                let body = "You have an Appointment Tomorrow:\n Date: \(appointment.date)\nTime:\(appointment.time)\nLocation: \(appointment.location)"
+                
+                NotificationManager.create(for: subTitle, bodyText: body, identifierId: identifier)
+                
             } else {
-                print("Fail to create Notification")
+                print("No identifer to create Notification")
             }
         } else {
             if (notificationExist) {

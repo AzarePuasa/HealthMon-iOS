@@ -25,6 +25,7 @@
 		EBAE9823225E23E600F2C518 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EBAE9822225E23E600F2C518 /* Assets.xcassets */; };
 		EBAE9826225E23E600F2C518 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EBAE9824225E23E600F2C518 /* LaunchScreen.storyboard */; };
 		EBB2314422D7977D00560335 /* WeightDataProcessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBB2314322D7977D00560335 /* WeightDataProcessor.swift */; };
+		EBBED86122E7E005009F9207 /* NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBBED86022E7E005009F9207 /* NotificationManager.swift */; };
 		EBC0E37722E605B400BA4E6F /* UserNotifications.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EBC0E37622E605B400BA4E6F /* UserNotifications.framework */; };
 		EBC6260D229CFE4C009CD035 /* HealthMonCommon.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBC6260C229CFE4C009CD035 /* HealthMonCommon.swift */; };
 		EBC62615229D04E5009CD035 /* ApptTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBC62614229D04E5009CD035 /* ApptTableViewCell.swift */; };
@@ -58,6 +59,7 @@
 		EBAE9825225E23E600F2C518 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		EBAE9827225E23E600F2C518 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EBB2314322D7977D00560335 /* WeightDataProcessor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeightDataProcessor.swift; sourceTree = "<group>"; };
+		EBBED86022E7E005009F9207 /* NotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationManager.swift; sourceTree = "<group>"; };
 		EBC0E37622E605B400BA4E6F /* UserNotifications.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UserNotifications.framework; path = System/Library/Frameworks/UserNotifications.framework; sourceTree = SDKROOT; };
 		EBC6260C229CFE4C009CD035 /* HealthMonCommon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthMonCommon.swift; sourceTree = "<group>"; };
 		EBC62614229D04E5009CD035 /* ApptTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApptTableViewCell.swift; sourceTree = "<group>"; };
@@ -130,6 +132,7 @@
 				EBA7247A22DE335F00E9A246 /* BPDataProcessor.swift */,
 				EBAA2EC022E57C5700F2C456 /* ApptNotifyViewController.swift */,
 				EBADF3F022E7670D0031EF79 /* WeightNotifyViewController.swift */,
+				EBBED86022E7E005009F9207 /* NotificationManager.swift */,
 			);
 			path = HealthApp;
 			sourceTree = "<group>";
@@ -235,6 +238,7 @@
 				EB97E88922D6F75F00C55C09 /* ApptViewController.swift in Sources */,
 				EBDD681C22CECF6700D120C8 /* ApptDataProcessor.swift in Sources */,
 				EBA7247B22DE335F00E9A246 /* BPDataProcessor.swift in Sources */,
+				EBBED86122E7E005009F9207 /* NotificationManager.swift in Sources */,
 				EBADF3F122E7670D0031EF79 /* WeightNotifyViewController.swift in Sources */,
 				EBCC34BA22B4CADD007A1A82 /* AddApptViewController.swift in Sources */,
 			);
