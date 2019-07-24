@@ -7,8 +7,13 @@
 //
 
 import UIKit
+import UserNotifications
 
 class WeightNotifyViewController: UIViewController {
+    
+    var notificationExist: Bool = false  //notification exist. Set from source controller.
+    
+    var weightNotification: UNNotificationRequest?
 
     override func viewDidLoad() {
         super.viewDidLoad()

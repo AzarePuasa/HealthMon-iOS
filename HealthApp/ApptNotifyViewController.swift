@@ -15,9 +15,8 @@ class ApptNotifyViewController: UIViewController {
     
     @IBOutlet weak var outTextView: UITextView!
     
-    var assignmentId: Int?
     var notificationExist: Bool = false  //notification exist. Set from source controller.
-    var isSwitchOn: Bool = false
+    
     var apptNotification: UNNotificationRequest?
     
     override func viewDidLoad() {
@@ -27,22 +26,21 @@ class ApptNotifyViewController: UIViewController {
         
         //TODO: Set notification id using the assignment id send over.
         
-        //TODO: Check if Current Notification exist.
-        // If notification exist for this Appointnent,
-        //set switch to on. Else switch is off
+        //Set switch. ON indicates that there is a pending Appointment,
+        //OFF otherwise.
         if (notificationExist) {
             outSwitch.isOn = true
         } else {
             outSwitch.isOn = false
         }
     
+        //print details of Appointment if available.
         if let appt_reminder = apptNotification {
-            outTextView.text = "Title\(appt_reminder.content.title)\n Sub-Title: \(appt_reminder.content.subtitle)"
+            outTextView.text = "Title\(appt_reminder.content.title)\n Sub-Title: \(appt_reminder.content.subtitle)\n Message: \(appt_reminder.content.body)"
         } else {
             outTextView.text = "No Notification Set"
         }
     }
-
     
     // MARK: - Navigation
 
@@ -52,11 +50,9 @@ class ApptNotifyViewController: UIViewController {
         let identifier = segue.identifier
         
         if (identifier == "exitNotAppt") {
-            //if switch is off and there is current Notification, delete the
-            //Notification
             let vc = segue.destination as! UpcomingApptViewController
             
-            print("isSwitchOn: \(isSwitchOn)")
+            print("isSwitchOn: \(outSwitch.isOn)")
             
             vc.userWantsNotification = outSwitch.isOn
         }
@@ -64,7 +60,6 @@ class ApptNotifyViewController: UIViewController {
     
     @IBAction func actDone(_ sender: UIBarButtonItem) {
         //Segue back to Upcoming Appointment View Controller
-        
         performSegue(withIdentifier: "exitNotAppt", sender: self)
         
     }
@@ -72,11 +67,8 @@ class ApptNotifyViewController: UIViewController {
     @IBAction func actSwitchChange(_ sender: UISwitch) {
         if (outSwitch.isOn) {
             print("The Notification is to be enabled")
-            isSwitchOn = true
         } else {
             print("The Notification is to be disabled")
-            isSwitchOn = false
         }
     }
-    
 }

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import UserNotifications
 
 class WeightViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
@@ -18,12 +19,22 @@ class WeightViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     @IBOutlet weak var outTableView: UITableView!
     
+    @IBOutlet weak var outNotificationBarButton: UIBarButtonItem!
+    
     var weightRecords: [Weight]  = []
+    
+    var isGrantedNotificationAccess = false
     
     let GET_ALL_WEIGHT_URL = "http://localhost:9010/api/weights"
     let CREATE_WEIGHT_URL = "http://localhost:9010/api/weight"
     
     var newWeightRecord: Weight!
+    
+    var weightNotificationId: String?
+    
+    var weightNotification: UNNotificationRequest?
+    
+    var notificationExist: Bool = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -42,6 +53,44 @@ class WeightViewController: UIViewController, UITableViewDelegate, UITableViewDa
         
         //TODO: get weight records.
         fetchAllWeights()
+        
+        weightNotificationId = "healthmon_appt_weight"
+        
+        // Disable toolbar item if no Notification authorization.
+        UNUserNotificationCenter.current().getNotificationSettings { (settings) in
+            // Do not schedule notifications if not authorized
+            if (settings.authorizationStatus == .authorized) {
+                self.isGrantedNotificationAccess = true
+                self.outNotificationBarButton.isEnabled = true
+
+            } else {
+                DispatchQueue.main.async {
+                   self.outNotificationBarButton.isEnabled = false
+                }
+            }
+        }
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+         super.viewWillAppear(true)
+        
+        if (isGrantedNotificationAccess) {
+            
+            //Check pending notifications.
+            UNUserNotificationCenter.current()  .getPendingNotificationRequests(completionHandler: {requests -> () in
+                
+                print("\(requests.count) requests -------")
+                
+                for request in requests{
+                    if (request.identifier == self.weightNotificationId) {
+                        print("Weight Notification found.")
+                        
+                        self.weightNotification = request
+                        self.notificationExist = true
+                    }
+                }
+            })
+        }
     }
     
     func fetchAllWeights() {
@@ -103,6 +152,10 @@ class WeightViewController: UIViewController, UITableViewDelegate, UITableViewDa
             let vc = segue.destination as! AddWeightViewController
             
             vc.hidesBottomBarWhenPushed = true
+        }
+        
+        if (identifier == "notifyweight") {
+            let vc = segue.destination as! WeightNotifyViewController
         }
     }
     

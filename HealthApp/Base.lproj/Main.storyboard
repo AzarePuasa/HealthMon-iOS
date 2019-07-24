@@ -100,7 +100,7 @@
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="3mZ-gu-cQj"/>
                                     <barButtonItem title="Item" image="icons8-reminder-24" id="PMj-MX-vd7">
                                         <connections>
-                                            <segue destination="z7V-HQ-UxM" kind="popoverPresentation" popoverAnchorBarButtonItem="PMj-MX-vd7" id="omq-Er-TYg">
+                                            <segue destination="z7V-HQ-UxM" kind="popoverPresentation" identifier="notifyweight" popoverAnchorBarButtonItem="PMj-MX-vd7" id="omq-Er-TYg">
                                                 <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
                                             </segue>
                                         </connections>
@@ -135,6 +135,7 @@
                         <outlet property="outImageHeader" destination="CTo-r4-UMU" id="CEn-jw-y4J"/>
                         <outlet property="outLabelHeader" destination="bfp-6u-1gx" id="Ygw-cR-Jr2"/>
                         <outlet property="outLabelSubHeader" destination="ff1-yJ-EAL" id="uAP-xM-kib"/>
+                        <outlet property="outNotificationBarButton" destination="PMj-MX-vd7" id="U4h-LJ-jUB"/>
                         <outlet property="outTableView" destination="0ZN-TJ-3gL" id="Oyl-7V-TZt"/>
                     </connections>
                 </viewController>
@@ -415,22 +416,26 @@
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="Inx-KG-XKj"/>
                                 </items>
                             </toolbar>
-                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="BU4-Ds-lIl">
-                                <rect key="frame" x="50" y="409" width="275" height="20.5"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="BU4-Ds-lIl">
+                                <rect key="frame" x="50" y="503" width="275" height="41"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Reminder: " textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rID-nY-sRT">
-                                        <rect key="frame" x="0.0" y="0.0" width="137.5" height="20.5"/>
+                                        <rect key="frame" x="96.5" y="0.0" width="82.5" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rqo-bh-gfD">
-                                        <rect key="frame" x="137.5" y="0.0" width="137.5" height="20.5"/>
+                                        <rect key="frame" x="0.0" y="20.5" width="275" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="rqo-bh-gfD" secondAttribute="trailing" id="3y7-k9-j8u"/>
+                                    <constraint firstItem="rqo-bh-gfD" firstAttribute="leading" secondItem="BU4-Ds-lIl" secondAttribute="leading" id="DdZ-lM-2UO"/>
+                                </constraints>
                             </stackView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -439,13 +444,13 @@
                             <constraint firstItem="58X-n5-1MN" firstAttribute="trailing" secondItem="BU4-Ds-lIl" secondAttribute="trailing" constant="50" id="ALA-ve-lzm"/>
                             <constraint firstItem="58X-n5-1MN" firstAttribute="trailing" secondItem="w5A-9L-CQb" secondAttribute="trailing" constant="20" id="J1v-VI-ZVB"/>
                             <constraint firstItem="BU4-Ds-lIl" firstAttribute="leading" secondItem="58X-n5-1MN" secondAttribute="leading" constant="50" id="LLp-2v-1J6"/>
+                            <constraint firstItem="Oxo-Ho-chF" firstAttribute="top" secondItem="BU4-Ds-lIl" secondAttribute="bottom" constant="30" id="OBi-tS-sS0"/>
                             <constraint firstItem="58X-n5-1MN" firstAttribute="trailing" secondItem="Oxo-Ho-chF" secondAttribute="trailing" constant="20" id="OaN-sr-m6F"/>
                             <constraint firstItem="Oxo-Ho-chF" firstAttribute="leading" secondItem="9SN-M6-o1m" secondAttribute="leading" constant="20" id="Qzd-35-6Ua"/>
                             <constraint firstItem="w5A-9L-CQb" firstAttribute="top" secondItem="58X-n5-1MN" secondAttribute="top" id="SVy-tu-j6h"/>
                             <constraint firstItem="58X-n5-1MN" firstAttribute="bottom" secondItem="Oxo-Ho-chF" secondAttribute="bottom" id="bVe-8B-w3K"/>
                             <constraint firstItem="dpJ-0l-GKY" firstAttribute="top" secondItem="w5A-9L-CQb" secondAttribute="bottom" constant="40" id="evJ-B8-uLU"/>
                             <constraint firstItem="dpJ-0l-GKY" firstAttribute="leading" secondItem="58X-n5-1MN" secondAttribute="leading" constant="20" id="fUA-o6-ER7"/>
-                            <constraint firstItem="BU4-Ds-lIl" firstAttribute="top" secondItem="dpJ-0l-GKY" secondAttribute="bottom" constant="50" id="gJ3-ZA-mR8"/>
                             <constraint firstItem="w5A-9L-CQb" firstAttribute="leading" secondItem="58X-n5-1MN" secondAttribute="leading" constant="20" id="lmX-zM-UFj"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="58X-n5-1MN"/>

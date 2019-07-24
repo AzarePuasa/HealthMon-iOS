@@ -112,7 +112,6 @@ class UpcomingApptViewController: UIViewController {
             outBarButtonEdit.isEnabled = false
             outNotificationBarButton.isEnabled = false
         }
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {
