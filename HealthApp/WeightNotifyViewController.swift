@@ -40,7 +40,6 @@ class WeightNotifyViewController: UIViewController {
                     self.weightNotification = request
                     self.notificationExist = true
                     
-                    
                     DispatchQueue.main.async {
                         //print details of weight notification if available.
                         if let weight_reminder = self.weightNotification {
@@ -57,7 +56,7 @@ class WeightNotifyViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         
-
+        
     }
     
     // MARK: - Navigation
@@ -67,26 +66,20 @@ class WeightNotifyViewController: UIViewController {
         // Get the new view controller using segue.destination.
         // Pass the selected object to the new view controller.
         
-        let identifier = segue.identifier
-        
-         if (identifier == "exitNotWeight") {
-             let vc = segue.destination as! WeightViewController
-            
-            if (notificationExist) {
-                print("Deleting Appointment Reminder")
-                
-                //Delete the notification
-            UNUserNotificationCenter.current().removePendingNotificationRequests(withIdentifiers: [weightNotificationId])
-                
-            }
-            
-            print("isSwitchOn: \(outSwitch.isOn)")
-            
-            vc.userWantsNotification = outSwitch.isOn
-        }
     }
     
     @IBAction func actBtnDone(_ sender: Any) {
+        
+        if (notificationExist && !outSwitch.isOn) {
+            print("Deleting Appointment Reminder")
+            UNUserNotificationCenter.current().removePendingNotificationRequests(withIdentifiers: [weightNotificationId])
+        } else {
+            let subTitle = "Weight Record Reminder"
+            let body = "Have you record your weight this month?"
+            
+            NotificationManager.createTimeIntervalNotification(for: subTitle, duration: 10, bodyText: body, identifierId: weightNotificationId)
+        }
+        
         performSegue(withIdentifier: "exitNotWeight", sender: self)
     }
     

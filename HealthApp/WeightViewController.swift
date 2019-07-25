@@ -69,8 +69,6 @@ class WeightViewController: UIViewController, UITableViewDelegate, UITableViewDa
                 }
             }
         }
-        
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -138,10 +136,6 @@ class WeightViewController: UIViewController, UITableViewDelegate, UITableViewDa
             
             vc.hidesBottomBarWhenPushed = true
         }
-        
-        if (identifier == "notifyweight") {
-            let vc = segue.destination as! WeightNotifyViewController
-        }
     }
     
     @IBAction func unwindWeightSegue(_ sender: UIStoryboardSegue) {
@@ -151,15 +145,6 @@ class WeightViewController: UIViewController, UITableViewDelegate, UITableViewDa
         
         if (identifier == "exitweight") {
             createWeight()
-        } else if (identifier == "exitNotWeight") {
-            if (userWantsNotification) {
-                let subTitle = "Weight Record Reminder"
-                let body = "Have you record your weight this month?"
-                
-                NotificationManager.create(for: subTitle, bodyText: body, identifierId: weightNotificationId)
-            } else {
-
-            }
         }
     }
     

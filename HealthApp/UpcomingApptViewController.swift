@@ -49,23 +49,6 @@ class UpcomingApptViewController: UIViewController {
     
     var apptNotification: UNNotificationRequest?
     
-    enum REMINDER_STATUS {
-        case SET
-        case NOT_SET
-        case NO_AUTHORIZATION
-        
-        func description() -> String {
-            switch self {
-                case .SET:
-                    return "SET"
-                case .NOT_SET:
-                    return "NOT SET"
-            case .NO_AUTHORIZATION:
-                return "NO AUTHORIZATION"
-            }
-        }
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -86,7 +69,7 @@ class UpcomingApptViewController: UIViewController {
         
         outNotificationBarButton.isEnabled = false
         
-        self.outReminder.text = REMINDER_STATUS.NOT_SET.description()
+        self.outReminder.text = NotificationManager.REMINDER_STATUS.NOT_SET.description()
         
         if (isUpcoming) {
             // For Upcoming Appointment, Notification Label is set
@@ -99,7 +82,7 @@ class UpcomingApptViewController: UIViewController {
                     
                 } else {
                     DispatchQueue.main.async {
-                        self.outReminder.text = REMINDER_STATUS.NO_AUTHORIZATION.description()
+                        self.outReminder.text = NotificationManager.REMINDER_STATUS.NO_AUTHORIZATION.description()
                     }
                 }
             }
@@ -132,7 +115,7 @@ class UpcomingApptViewController: UIViewController {
                         self.apptNotification = request
                         self.notificationExist = true
                         DispatchQueue.main.async {
-                            self.outReminder.text = REMINDER_STATUS.SET.description()
+                            self.outReminder.text = NotificationManager.REMINDER_STATUS.SET.description()
                         }
                     }
                 }
@@ -207,7 +190,7 @@ class UpcomingApptViewController: UIViewController {
                 
                 let body = "You have an Appointment Tomorrow:\n Date: \(appointment.date)\nTime:\(appointment.time)\nLocation: \(appointment.location)"
                 
-                NotificationManager.create(for: subTitle, bodyText: body, identifierId: identifier)
+                NotificationManager.createTimeIntervalNotification(for: subTitle, duration: 10, bodyText: body, identifierId: identifier)
                 
             } else {
                 print("No identifer to create Notification")

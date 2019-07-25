@@ -11,9 +11,26 @@ import UserNotifications
 
 class NotificationManager {
     
+    enum REMINDER_STATUS {
+        case SET
+        case NOT_SET
+        case NO_AUTHORIZATION
+        
+        func description() -> String {
+            switch self {
+            case .SET:
+                return "SET"
+            case .NOT_SET:
+                return "NOT SET"
+            case .NO_AUTHORIZATION:
+                return "NO AUTHORIZATION"
+            }
+        }
+    }
+    
     static var title: String = "Health Monitoring"
     
-    static func create(for subtitle: String, bodyText: String, identifierId: String) {
+    static func createTimeIntervalNotification(for subtitle: String, duration: Int, bodyText: String, identifierId: String) {
         let content = UNMutableNotificationContent()
         content.title = title
         content.subtitle = subtitle

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import UserNotifications
 
 class BPViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
@@ -18,11 +19,15 @@ class BPViewController: UIViewController, UITableViewDelegate, UITableViewDataSo
     
     @IBOutlet weak var outLabelSubHeader: UILabel!
     
+    @IBOutlet weak var outNotificationBarButton: UIBarButtonItem!
+    
     var DailyBPReadings: [BPDailyReading] = []
     
     var bpReading: BPReading?
     
     let GET_ALL_BPREADING_URL = "http://localhost:9010/api/bpreadings"
+    
+    var isGrantedNotificationAccess = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,6 +45,20 @@ class BPViewController: UIViewController, UITableViewDelegate, UITableViewDataSo
         //TODO: Fetch BP Daily Readings. Each row will
         // return id, date, morningbp, afternoonbp & eveningbp.
         fetchAllBPReadings()
+        
+        // Disable toolbar item if no Notification authorization.
+        UNUserNotificationCenter.current().getNotificationSettings { (settings) in
+            // Do not schedule notifications if not authorized
+            if (settings.authorizationStatus == .authorized) {
+                self.isGrantedNotificationAccess = true
+                self.outNotificationBarButton.isEnabled = true
+                
+            } else {
+                DispatchQueue.main.async {
+                    self.outNotificationBarButton.isEnabled = false
+                }
+            }
+        }
     }
     
     func fetchAllBPReadings() {
@@ -133,10 +152,6 @@ class BPViewController: UIViewController, UITableViewDelegate, UITableViewDataSo
         
         if let bpReading = bpReading {
             let reading = "\(bpReading.systolic)/\(bpReading.diastolic)"
-            
-            //let obj = reading as AnyObject
-            
-            //let apptData = try! JSONSerialization.data(withJSONObject: reading, options: [])
             
             if (bpReading.type == AddBPViewController.BPTYPE.MORNING) {
                 HTTPHandler.putAPIString(urlString: "http://localhost:9010/api/bpmorning/\(bpReading.dailyReadingId)", data: reading, completionHandler: putAPIUpdateBP)

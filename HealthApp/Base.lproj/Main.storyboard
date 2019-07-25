@@ -794,6 +794,7 @@
                         <outlet property="outImageHeader" destination="MFb-uh-im8" id="z1u-B2-VU1"/>
                         <outlet property="outLabelHeader" destination="PIf-ue-X7t" id="E3q-oz-I1v"/>
                         <outlet property="outLabelSubHeader" destination="3yy-7P-AZH" id="l0n-yC-2Da"/>
+                        <outlet property="outNotificationBarButton" destination="F38-E8-7Px" id="GzI-7F-BvJ"/>
                         <outlet property="outTableView" destination="2Sm-hk-4wA" id="BPt-q9-Ytm"/>
                     </connections>
                 </viewController>
@@ -878,14 +879,14 @@
                                     </navigationItem>
                                 </items>
                             </navigationBar>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b1B-Zp-1Yz">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b1B-Zp-1Yz">
                                 <rect key="frame" x="60" y="349" width="255" height="140"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="140" id="neG-Ps-wMk"/>
                                 </constraints>
                                 <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</string>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                         </subviews>
@@ -901,6 +902,10 @@
                         <viewLayoutGuide key="safeArea" id="hUn-2a-ydw"/>
                     </view>
                     <connections>
+                        <outlet property="outAfternoonSwitch" destination="srW-tP-4wU" id="Zu4-F5-bCZ"/>
+                        <outlet property="outEveningSwitch" destination="KRH-Uz-aDB" id="K0O-gH-Iv7"/>
+                        <outlet property="outMorningSwitch" destination="frc-7a-5X4" id="D9D-0W-gSS"/>
+                        <outlet property="outTextView" destination="b1B-Zp-1Yz" id="lbn-Ro-LLM"/>
                         <segue destination="WM5-rs-cy5" kind="unwind" identifier="exitNotBP" unwindAction="unwindBPSegue:" id="rU9-8C-ATF"/>
                     </connections>
                 </viewController>
