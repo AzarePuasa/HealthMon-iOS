@@ -403,7 +403,7 @@
                                 </subviews>
                             </stackView>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Oxo-Ho-chF">
-                                <rect key="frame" x="20" y="574" width="335" height="44"/>
+                                <rect key="frame" x="0.0" y="574" width="375" height="44"/>
                                 <items>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="fTt-Hf-7mD"/>
                                     <barButtonItem title="Notification" image="icons8-reminder-24" id="uX3-Fg-Yvu">
@@ -445,8 +445,8 @@
                             <constraint firstItem="58X-n5-1MN" firstAttribute="trailing" secondItem="w5A-9L-CQb" secondAttribute="trailing" constant="20" id="J1v-VI-ZVB"/>
                             <constraint firstItem="BU4-Ds-lIl" firstAttribute="leading" secondItem="58X-n5-1MN" secondAttribute="leading" constant="50" id="LLp-2v-1J6"/>
                             <constraint firstItem="Oxo-Ho-chF" firstAttribute="top" secondItem="BU4-Ds-lIl" secondAttribute="bottom" constant="30" id="OBi-tS-sS0"/>
-                            <constraint firstItem="58X-n5-1MN" firstAttribute="trailing" secondItem="Oxo-Ho-chF" secondAttribute="trailing" constant="20" id="OaN-sr-m6F"/>
-                            <constraint firstItem="Oxo-Ho-chF" firstAttribute="leading" secondItem="9SN-M6-o1m" secondAttribute="leading" constant="20" id="Qzd-35-6Ua"/>
+                            <constraint firstItem="58X-n5-1MN" firstAttribute="trailing" secondItem="Oxo-Ho-chF" secondAttribute="trailing" id="OaN-sr-m6F"/>
+                            <constraint firstItem="Oxo-Ho-chF" firstAttribute="leading" secondItem="9SN-M6-o1m" secondAttribute="leading" id="Qzd-35-6Ua"/>
                             <constraint firstItem="w5A-9L-CQb" firstAttribute="top" secondItem="58X-n5-1MN" secondAttribute="top" id="SVy-tu-j6h"/>
                             <constraint firstItem="58X-n5-1MN" firstAttribute="bottom" secondItem="Oxo-Ho-chF" secondAttribute="bottom" id="bVe-8B-w3K"/>
                             <constraint firstItem="dpJ-0l-GKY" firstAttribute="top" secondItem="w5A-9L-CQb" secondAttribute="bottom" constant="40" id="evJ-B8-uLU"/>
@@ -680,7 +680,7 @@
                                 </constraints>
                             </stackView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="2Sm-hk-4wA">
-                                <rect key="frame" x="20" y="203" width="335" height="415"/>
+                                <rect key="frame" x="20" y="203" width="335" height="371"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="bpcell" id="Bl7-sE-Bk9" customClass="BPTableViewCell" customModule="HealthApp" customModuleProvider="target">
@@ -753,14 +753,31 @@
                                     <outlet property="delegate" destination="rR1-F4-ach" id="N77-VS-bb4"/>
                                 </connections>
                             </tableView>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="w6A-nT-Hqn">
+                                <rect key="frame" x="0.0" y="574" width="375" height="44"/>
+                                <items>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="sFx-wC-MV7"/>
+                                    <barButtonItem title="Item" image="icons8-reminder-24" id="F38-E8-7Px">
+                                        <connections>
+                                            <segue destination="Ncl-Tc-n7s" kind="popoverPresentation" popoverAnchorBarButtonItem="F38-E8-7Px" id="8pN-OX-ojn">
+                                                <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
+                                            </segue>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="MjF-bm-qbI"/>
+                                </items>
+                            </toolbar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="HP4-T7-XGC" firstAttribute="trailing" secondItem="2Sm-hk-4wA" secondAttribute="trailing" constant="20" id="7ej-eJ-aZR"/>
+                            <constraint firstItem="HP4-T7-XGC" firstAttribute="bottom" secondItem="w6A-nT-Hqn" secondAttribute="bottom" id="9hW-wM-h6x"/>
                             <constraint firstItem="orX-CR-EvI" firstAttribute="leading" secondItem="HP4-T7-XGC" secondAttribute="leading" constant="20" id="GAF-wN-diV"/>
+                            <constraint firstItem="w6A-nT-Hqn" firstAttribute="trailing" secondItem="HP4-T7-XGC" secondAttribute="trailing" id="JtG-ed-sos"/>
                             <constraint firstItem="2Sm-hk-4wA" firstAttribute="leading" secondItem="HP4-T7-XGC" secondAttribute="leading" constant="20" id="Kqb-EQ-nwC"/>
+                            <constraint firstItem="w6A-nT-Hqn" firstAttribute="top" secondItem="2Sm-hk-4wA" secondAttribute="bottom" id="NhK-hc-tZi"/>
+                            <constraint firstItem="w6A-nT-Hqn" firstAttribute="leading" secondItem="HP4-T7-XGC" secondAttribute="leading" id="Tax-Vc-X4J"/>
                             <constraint firstItem="2Sm-hk-4wA" firstAttribute="top" secondItem="orX-CR-EvI" secondAttribute="bottom" constant="20" id="XD4-8D-H7Q"/>
-                            <constraint firstItem="HP4-T7-XGC" firstAttribute="bottom" secondItem="2Sm-hk-4wA" secondAttribute="bottom" id="qvv-NZ-NAd"/>
                             <constraint firstItem="HP4-T7-XGC" firstAttribute="trailing" secondItem="orX-CR-EvI" secondAttribute="trailing" constant="20" id="rWw-hk-DQp"/>
                             <constraint firstItem="orX-CR-EvI" firstAttribute="top" secondItem="HP4-T7-XGC" secondAttribute="top" constant="10" id="rYI-pZ-cMy"/>
                         </constraints>
@@ -783,6 +800,114 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nWN-oX-02k" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1074" y="1046"/>
+        </scene>
+        <!--Notify View Controller-->
+        <scene sceneID="Nqv-8u-eev">
+            <objects>
+                <viewController id="Ncl-Tc-n7s" customClass="BPNotifyViewController" customModule="HealthApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="BIV-d7-sAX">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="bpx-G6-QKb">
+                                <rect key="frame" x="20" y="166" width="335" height="133"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="Gwl-PV-YPb">
+                                        <rect key="frame" x="0.0" y="0.0" width="335" height="31"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Morning Notification" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fdi-MW-Tvv">
+                                                <rect key="frame" x="0.0" y="0.0" width="276" height="31"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="frc-7a-5X4">
+                                                <rect key="frame" x="286" y="0.0" width="51" height="31"/>
+                                                <connections>
+                                                    <action selector="actSwitchChange:" destination="wTt-1d-SGm" eventType="valueChanged" id="FQE-sS-ID6"/>
+                                                </connections>
+                                            </switch>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="rED-lZ-edt">
+                                        <rect key="frame" x="0.0" y="51" width="335" height="31"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Afternoon Notification" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="koB-Uq-yxe">
+                                                <rect key="frame" x="0.0" y="0.0" width="276" height="31"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="srW-tP-4wU">
+                                                <rect key="frame" x="286" y="0.0" width="51" height="31"/>
+                                                <connections>
+                                                    <action selector="actSwitchChange:" destination="wTt-1d-SGm" eventType="valueChanged" id="Fdc-oY-Kf9"/>
+                                                </connections>
+                                            </switch>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="A43-oh-5yq">
+                                        <rect key="frame" x="0.0" y="102" width="335" height="31"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Evening Notification" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rDs-cz-Y9s">
+                                                <rect key="frame" x="0.0" y="0.0" width="276" height="31"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="KRH-Uz-aDB">
+                                                <rect key="frame" x="286" y="0.0" width="51" height="31"/>
+                                                <connections>
+                                                    <action selector="actSwitchChange:" destination="wTt-1d-SGm" eventType="valueChanged" id="hXy-2j-3P6"/>
+                                                </connections>
+                                            </switch>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                            </stackView>
+                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="DKz-gf-8AV">
+                                <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <items>
+                                    <navigationItem title="Set Notification" id="yS8-dT-Ach">
+                                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="4cr-ZE-qt9">
+                                            <connections>
+                                                <action selector="actDoneBtn:" destination="Ncl-Tc-n7s" id="jEN-vA-WcC"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b1B-Zp-1Yz">
+                                <rect key="frame" x="60" y="349" width="255" height="140"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="140" id="neG-Ps-wMk"/>
+                                </constraints>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="hUn-2a-ydw" firstAttribute="trailing" secondItem="bpx-G6-QKb" secondAttribute="trailing" constant="20" id="1w2-6E-lhv"/>
+                            <constraint firstItem="b1B-Zp-1Yz" firstAttribute="leading" secondItem="hUn-2a-ydw" secondAttribute="leading" constant="60" id="49A-Lx-ZV3"/>
+                            <constraint firstItem="bpx-G6-QKb" firstAttribute="top" secondItem="hUn-2a-ydw" secondAttribute="top" constant="146" id="EjU-EA-4IH"/>
+                            <constraint firstItem="bpx-G6-QKb" firstAttribute="leading" secondItem="hUn-2a-ydw" secondAttribute="leading" constant="20" id="JXO-fZ-1yT"/>
+                            <constraint firstItem="hUn-2a-ydw" firstAttribute="trailing" secondItem="b1B-Zp-1Yz" secondAttribute="trailing" constant="60" id="kAz-oF-LGG"/>
+                            <constraint firstItem="b1B-Zp-1Yz" firstAttribute="top" secondItem="bpx-G6-QKb" secondAttribute="bottom" constant="50" id="sA0-cK-N82"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="hUn-2a-ydw"/>
+                    </view>
+                    <connections>
+                        <segue destination="WM5-rs-cy5" kind="unwind" identifier="exitNotBP" unwindAction="unwindBPSegue:" id="rU9-8C-ATF"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Quj-e3-8jw" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="WM5-rs-cy5" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="1073" y="1965"/>
         </scene>
         <!--Health Monitoring-->
         <scene sceneID="Kd6-X5-Gsq">
@@ -1240,10 +1365,10 @@
                                 </subviews>
                             </stackView>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu," textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Zuy-SK-aGw">
-                                <rect key="frame" x="60" y="225" width="255" height="137"/>
+                                <rect key="frame" x="60" y="225" width="255" height="140"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="137" id="lPg-v2-XPh"/>
+                                    <constraint firstAttribute="height" constant="140" id="lPg-v2-XPh"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>

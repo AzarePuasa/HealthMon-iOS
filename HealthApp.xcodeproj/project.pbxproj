@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		EB01770222D8A247007B0FB8 /* AddWeightViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB01770122D8A247007B0FB8 /* AddWeightViewController.swift */; };
+		EB85F7D322E96BE4006CEDCE /* BPNotifyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB85F7D222E96BE4006CEDCE /* BPNotifyViewController.swift */; };
 		EB97E88922D6F75F00C55C09 /* ApptViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB97E88822D6F75F00C55C09 /* ApptViewController.swift */; };
 		EB97E88B22D6FB8700C55C09 /* Weight.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB97E88A22D6FB8700C55C09 /* Weight.swift */; };
 		EB97E88D22D6FED100C55C09 /* WeightTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB97E88C22D6FED100C55C09 /* WeightTableViewCell.swift */; };
@@ -40,6 +41,7 @@
 
 /* Begin PBXFileReference section */
 		EB01770122D8A247007B0FB8 /* AddWeightViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddWeightViewController.swift; sourceTree = "<group>"; };
+		EB85F7D222E96BE4006CEDCE /* BPNotifyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BPNotifyViewController.swift; sourceTree = "<group>"; };
 		EB97E88822D6F75F00C55C09 /* ApptViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApptViewController.swift; sourceTree = "<group>"; };
 		EB97E88A22D6FB8700C55C09 /* Weight.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Weight.swift; sourceTree = "<group>"; };
 		EB97E88C22D6FED100C55C09 /* WeightTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeightTableViewCell.swift; sourceTree = "<group>"; };
@@ -133,6 +135,7 @@
 				EBAA2EC022E57C5700F2C456 /* ApptNotifyViewController.swift */,
 				EBADF3F022E7670D0031EF79 /* WeightNotifyViewController.swift */,
 				EBBED86022E7E005009F9207 /* NotificationManager.swift */,
+				EB85F7D222E96BE4006CEDCE /* BPNotifyViewController.swift */,
 			);
 			path = HealthApp;
 			sourceTree = "<group>";
@@ -225,6 +228,7 @@
 				EBB2314422D7977D00560335 /* WeightDataProcessor.swift in Sources */,
 				EBA01EBD22DACDDC00D3DDA8 /* BPDailyReading.swift in Sources */,
 				EBAA2EC122E57C5700F2C456 /* ApptNotifyViewController.swift in Sources */,
+				EB85F7D322E96BE4006CEDCE /* BPNotifyViewController.swift in Sources */,
 				EBE8F627227D4D7A00E7912D /* Appt.swift in Sources */,
 				EBC62615229D04E5009CD035 /* ApptTableViewCell.swift in Sources */,
 				EBC6260D229CFE4C009CD035 /* HealthMonCommon.swift in Sources */,

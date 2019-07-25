@@ -110,14 +110,19 @@ class BPViewController: UIViewController, UITableViewDelegate, UITableViewDataSo
     @IBAction func unwindBPSegue(_ sender: UIStoryboardSegue) {
         print("unwind Segue")
     
-        // TODO: Handle return of new BP Reading.
-        // Call Update BP Reading REST API endpoint.
-        if let bpReading = bpReading {
-            print(bpReading.describe())
-            
-            updateDailyBP()
-        }
+        //Handle return of new BP Reading.
+        //Call Update BP Reading REST API endpoint.
         
+        let identifier = sender.identifier
+        
+        if (identifier == "exittoBP") {
+            if let bpReading = bpReading {
+                print(bpReading.describe())
+                updateDailyBP()
+            }
+        } else if (identifier == "exitNotBP") {
+            print("Unwind segue from Notification")
+        }
     }
     
     func updateDailyBP() {
