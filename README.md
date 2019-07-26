@@ -11,6 +11,9 @@ When the app is loaded, user is presented with a view with 3 tabs.
 ### Health Appointments 
 This function enables users to perform list, view, add and edit health appointments.
 
+#### Appointment
+TBC
+
 #### Appointments
 This viewcontroller list the user's health appointments. The view makes use of 2 main IU Object; a segmented control with 2 labels; 'Upcoming' and 'Completed' and a table view. 
 
@@ -26,39 +29,52 @@ When user clicks on the '+' at the top right of the screen, a show segue directs
 
 Clicking on a row invoke a show segue to the View Appointment screen. The selected appointment details will be send forward to the View Appointment View controller
 
-### View Appointment
+#### View Appointment
 This viewcontroller displays selected user's health appointments. It consists of labels to display date, time, location and purpose of health appointment. If the appointment is Upcoming, the 'Edit' button will be enabled and it will be disable when the appointment is Completed. 
 
 Clicking the Edit button will invoke the Show segue to Edit Appointment View controller. The appointment object is send to the source view controller.  
 
 
-### Add Appointment
+#### Add Appointment
 This viewcontroller is for user's create new health appointments. The view consist of a form with 4 input text fields; date, time, location and purpose. The date and time are text field with picker view. After selecting date/time, user dismisses the picker view with the 'Done' button which will populate the text field with the date/time selected. The location field is compulsory while the purpose field is optional. Once form is completed, user will press the save button.
 
 The save button action will trigger the unwind segue back to Appointments Viewcontroller and returned the Appointment object. The return object will have id of -1 to inform the source view controller to create new Appointment record.  
 
 Clear button will clear the text fields.
 
-### Edit Appointment
+#### Edit Appointment
 This viewcontroller is for user's edit existing Upcoming health appointments. this viewcontroller has similar to Add Appointment Viewcontroller but difference is the details of appointment will be loaded and once form is completed, user will press the save button.
 
 The save button action will trigger the unwind segue back to Appointments Viewcontroller and returned the Appointment object. The return object will have a non zero id to inform the source view controller to update the record Appointment.  
 
+#### Set Appointment Notification
+TBC
+
 ### Weight Records
 This function enables users to perform list all weights and create new weight record.
 
+#### Weight
+TBC
+
 #### Weights
-This View Controller list the date of the weight was taken and the weight recorded. The data is retrieve by making REST API call. The server returns a response containing an array of weight records in the JSON string format. HealthMon reads the JSON and turns it into an array of Weight object. The attributes of the weight object, date and weight record is then loaded onto the tableview. 
+This View Controller makes use of a table view to display the weight data. There are 2 details that is shown, date and recorded weight.
+
+When loading, this View Controller makes a GET call to the REST API. It will get a response from the API server. If response code is 200, containing an array of weight records in the JSON string format. HealthMon reads the JSON and turns it into an array of Weight object. The attributes of the weight object, date and weight record is then loaded onto the tableview. 
 
   
-
 #### Add Weights
-TBC
+This View Controller contains a for user to create new weight record. It contains Date text field, Weight Text field and a picker view. The Date text field will invoke a picker view. The Weight Text view is non editable and only gets input from the picker view value. 
+
+The designed of the UI is intended to make it easy for user to create records. When loaded, the Date field will be prepopulated. So all that is left is for user has to select the weight using the picker view.
+
+After completing the form, user clicks on the save button and this will invoke the unwind seque back to the Weights View controller where the new weight record will be saved to the database.
 
 ### Blood Pressure Readings
 This function enables users to perform list all blood pressure readings and enter new readings.
 
-#### BP Readings
+#### Daily BP Reading
+
+#### Daily BP Readings
 TBC
 
 #### Add BP Reading
